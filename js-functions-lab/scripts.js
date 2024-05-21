@@ -80,3 +80,19 @@ const greetUser = (username, time_of_day) => {
 };
 
 console.log("Exercise 5 Result:", greetUser("Sam", "morning"));
+
+/*
+Exercise 6: reverseString()
+
+Define a function called reverseString. It should take a string and return it with its characters in reverse order. 
+
+Example: reverseString('rockstar') should return the string "ratskcor".
+
+Complete the exercise in the space below:
+*/
+
+const reverseString = (input) => {
+  return input.split("").reverse().join("");
+};
+
+console.log("Exercise 6 Result:", reverseString("rockstar"));
