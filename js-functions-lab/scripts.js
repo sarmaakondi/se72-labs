@@ -75,8 +75,8 @@ Example: greetUser('Sam', 'morning') should return "Good morning, Sam!"
 Complete the exercise in the space below:
 */
 
-const greetUser = (username, time_of_day) => {
-  return `Good ${time_of_day}, ${username}!`;
+const greetUser = (username, timeOfDay) => {
+  return `Good ${timeOfDay}, ${username}!`;
 };
 
 console.log("Exercise 5 Result:", greetUser("Sam", "morning"));
@@ -146,8 +146,8 @@ Example: calculateTip(50, 20) should return 10.
 Complete the exercise in the space below:
 */
 
-const calculateTip = (bill_amount, tip_percent) => {
-  return bill_amount * (tip_percent / 100);
+const calculateTip = (billAmount, tipPercent) => {
+  return billAmount * (tipPercent / 100);
 };
 
 console.log("Exercise 9 Result:", calculateTip(50, 20));
@@ -222,3 +222,24 @@ const calculateGrade = (score) => {
 };
 
 console.log("Exercise 12 Result:", calculateGrade(85));
+
+/*
+Exercise 13: createUsername()
+
+Define a function called createUsername. It should take a first name and a last name and return a username. The username should be a combination of the following:
+- The first three letters of the first name.
+- The first three letters of the last name.
+- The total character count of the first and last name combined.
+
+Example: createUsername('Samantha', 'Green') should return 'SamGre12'.
+
+Complete the exercise in the space below:
+*/
+
+const createUsername = (firstName, lastName) => {
+  return `${firstName.slice(0, 3)}${lastName.slice(0, 3)}${
+    (firstName + lastName).length
+  }`;
+};
+
+console.log("Exercise 13 Result:", createUsername("Samantha", "Green"));
