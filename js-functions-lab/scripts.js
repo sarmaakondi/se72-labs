@@ -96,3 +96,20 @@ const reverseString = (input) => {
 };
 
 console.log("Exercise 6 Result:", reverseString("rockstar"));
+
+/*
+Exercise 7: checkPalindrome()
+
+Define a function called checkPalindrome. It should take a string and return true if the string is a palindrome (reads the same forwards and backwards) and false otherwise.
+
+Example: checkPalindrome('radar') should return true.
+Example: checkPalindrome('taco') should return false.
+
+Complete the exercise in the space below:
+*/
+
+const checkPalindrome = (input) => {
+  return input === reverseString(input);
+};
+
+console.log("Exercise 7 Result:", checkPalindrome("radar"));
