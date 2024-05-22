@@ -17,5 +17,9 @@ const game = {
   ],
 };
 
+// Exercise 1
 // console.dir(pokemon, { maxArrayLength: null });
 console.log(pokemon[58]);
+
+// Exercise 2
+console.log(game);
