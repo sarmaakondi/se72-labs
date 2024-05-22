@@ -118,3 +118,21 @@ Solve Exercise 10 here:
 for (const creature of pokemon) {
   if (creature.starter) console.log(creature.name);
 }
+
+/*
+Exercise 11
+1. Add a method called `catchPokemon` to the `game` object. This method should:
+  - Accept an object as a parameter called `pokemonObj`
+  - Add the `pokemonObj` to the `game.party` array.
+  - not return anything
+
+After writing this method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+
+Solve Exercise 11 here:
+*/
+game.catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj);
+};
+
+game.catchPokemon(pokemon[55]);
+console.log(game.party);
