@@ -153,7 +153,10 @@ game.catchPokemon = (pokemonObj) => {
   game.party.push(pokemonObj);
 
   for (const item of game.items) {
-    if (item.name === "pokeball") item.quantity--;
+    if (item.name === "pokeball") {
+      item.quantity--;
+      break;
+    }
   }
 };
 
@@ -282,7 +285,10 @@ game.catchPokemon = (pokemonObj) => {
     : game.collection.push(pokemonObj);
 
   for (const item of game.items) {
-    if (item.name === "pokeball") item.quantity--;
+    if (item.name === "pokeball") {
+      item.quantity--;
+      break;
+    }
   }
 };
 
@@ -306,7 +312,10 @@ Solve Exercise 19 here:
 game.catchPokemon = (pokemonObj) => {
   let remainingPokeball;
   for (const item of game.items) {
-    if (item.name === "pokeball") remainingPokeball = item.quantity;
+    if (item.name === "pokeball") {
+      remainingPokeball = item.quantity;
+      break;
+    }
   }
 
   if (!remainingPokeball) {
@@ -319,7 +328,10 @@ game.catchPokemon = (pokemonObj) => {
     : game.collection.push(pokemonObj);
 
   for (const item of game.items) {
-    if (item.name === "pokeball") item.quantity--;
+    if (item.name === "pokeball") {
+      item.quantity--;
+      break;
+    }
   }
 };
 
@@ -350,6 +362,7 @@ game.catchPokemon = (pokemonName) => {
     if (creature.name.toLowerCase() === pokemonName.toLowerCase()) {
       pokemonExist = true;
       pokemonIndex = index;
+      break;
     }
   }
 
@@ -360,7 +373,10 @@ game.catchPokemon = (pokemonName) => {
 
   let remainingPokeball;
   for (const item of game.items) {
-    if (item.name === "pokeball") remainingPokeball = item.quantity;
+    if (item.name === "pokeball") {
+      remainingPokeball = item.quantity;
+      break;
+    }
   }
 
   if (!remainingPokeball) {
@@ -373,15 +389,18 @@ game.catchPokemon = (pokemonName) => {
     : game.collection.push(pokemon[pokemonIndex]);
 
   for (const item of game.items) {
-    if (item.name === "pokeball") item.quantity--;
+    if (item.name === "pokeball") {
+      item.quantity--;
+      break;
+    }
   }
 };
 
 // Enable below to see the result
-// game.catchPokemon("WEeDlE");
-// game.catchPokemon("PidGEY");
-// game.catchPokemon("paRaS");
-// game.catchPokemon("golduck");
+game.catchPokemon("WEeDlE");
+game.catchPokemon("PidGEY");
+game.catchPokemon("paRaS");
+game.catchPokemon("golduck");
 // game.catchPokemon("POLIWAG");
 // game.catchPokemon("Sarma");
 console.table(game.party);
