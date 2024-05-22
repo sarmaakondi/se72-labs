@@ -95,4 +95,14 @@ Solve Exercise 8 here:
 for (let i = 0; i < game.party.length; i++) {
   if (game.party[i].starter) game.party[i] = pokemon[game.party[i].number];
 }
-console.log(game.party);
+
+/*
+Exercise 9
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 9 here:
+*/
+for (const player of game.party) {
+  console.log(player.name);
+}
