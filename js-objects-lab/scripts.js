@@ -106,3 +106,15 @@ Solve Exercise 9 here:
 for (const player of game.party) {
   console.log(player.name);
 }
+
+/*
+Exercise 10
+1. Can you print out all the starter Pokémon from the `pokemon` array?
+2. Think about how you can identify a starter Pokémon and then log their names.
+
+
+Solve Exercise 10 here:
+*/
+for (const creature of pokemon) {
+  if (creature.starter) console.log(creature.name);
+}
