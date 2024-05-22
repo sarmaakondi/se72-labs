@@ -323,12 +323,67 @@ game.catchPokemon = (pokemonObj) => {
   }
 };
 
-game.catchPokemon(pokemon[10]);
-game.catchPokemon(pokemon[11]);
-game.catchPokemon(pokemon[12]);
-game.catchPokemon(pokemon[13]);
-// Enable the below to check the remainingPokeball condition
+// Enable below to see the result
+// game.catchPokemon(pokemon[10]);
+// game.catchPokemon(pokemon[11]);
+// game.catchPokemon(pokemon[12]);
+// game.catchPokemon(pokemon[13]);
 // game.catchPokemon(pokemon[14]);
+console.table(game.party);
+console.table(game.collection);
+console.table(game.items);
+
+/*
+Exercise 20
+Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify is so that you can just pass in the name of a Pokemon instead of an entire object, and the method will look up the Pokemon from the data set for you.
+
+The string passed in should be allowed to be any case (for example, if the string 'PiKacHU' is passed to the function, it should match to 'Pikachu' in the data set). 
+
+If there is not a match, then return a string noting that the selected Pokemon does not exist. Ensure you do not decrement the pokeball count if an invalid Pokemon name is passed in, and also ensure that the Pokemon isn't added to the `game.party` or the `game.collection`.
+
+Solve Exercise 20 here:
+*/
+game.catchPokemon = (pokemonName) => {
+  let pokemonExist;
+  let pokemonIndex;
+  for (let [index, creature] of pokemon.entries()) {
+    if (creature.name.toLowerCase() === pokemonName.toLowerCase()) {
+      pokemonExist = true;
+      pokemonIndex = index;
+    }
+  }
+
+  if (!pokemonExist) {
+    alert(`The selected pokemon '${pokemonName}' doesn't exist!!!`);
+    return;
+  }
+
+  let remainingPokeball;
+  for (const item of game.items) {
+    if (item.name === "pokeball") remainingPokeball = item.quantity;
+  }
+
+  if (!remainingPokeball) {
+    alert("There are not enough pokeballs to catch the desired Pokemon!!!");
+    return;
+  }
+
+  game.party.length < 6
+    ? game.party.push(pokemon[pokemonIndex])
+    : game.collection.push(pokemon[pokemonIndex]);
+
+  for (const item of game.items) {
+    if (item.name === "pokeball") item.quantity--;
+  }
+};
+
+// Enable below to see the result
+// game.catchPokemon("WEeDlE");
+// game.catchPokemon("PidGEY");
+// game.catchPokemon("paRaS");
+// game.catchPokemon("golduck");
+// game.catchPokemon("POLIWAG");
+// game.catchPokemon("Sarma");
 console.table(game.party);
 console.table(game.collection);
 console.table(game.items);
