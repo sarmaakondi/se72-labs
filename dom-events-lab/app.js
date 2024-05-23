@@ -54,10 +54,10 @@ calculator.addEventListener("click", (event) => {
   }
 
   if (event.target.classList.contains("equals")) {
-    result = calculate(parseInt(num1), parseInt(num2), operator);
+    result = calculate(parseFloat(num1), parseFloat(num2), operator);
     console.log(`result: ${result}`);
     displayElement.textContent = result;
-    num1 = "";
+    num1 = result;
     num2 = "";
     operator = "";
   }
@@ -74,16 +74,15 @@ const calculate = (num1, num2, operator) => {
   } else if (operator === "*") {
     output = num1 * num2;
   } else if (operator === "/") {
-    if (num2 !== 0) {
-      output = num1 / num2;
-      if (output % 1 !== 0) {
-        digitsCount = output.toString().split(".")[1].length;
-        output =
-          digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
-      }
-    } else {
-      output = NaN;
-    }
+    if (num2 === 0) return NaN;
+    output = num1 / num2;
+  }
+  console.log(`output: ${output}`);
+
+  if (output % 1 !== 0) {
+    digitsCount = output.toString().split(".")[1].length;
+    output =
+      digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
   }
 
   return output;
