@@ -76,9 +76,13 @@ const calculate = (num1, num2, operator) => {
   } else if (operator === "/") {
     if (num2 !== 0) {
       output = num1 / num2;
-      digitsCount = output.toString().split(".")[1].length;
-      output =
-        digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
+      if (output % 1 !== 0) {
+        digitsCount = output.toString().split(".")[1].length;
+        output =
+          digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
+      }
+    } else {
+      output = NaN;
     }
   }
 
