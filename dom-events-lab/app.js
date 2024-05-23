@@ -32,14 +32,13 @@ calculator.addEventListener("click", (event) => {
 
     if (tempOperator === "C") {
       displayElement.textContent = 0;
+      console.log(`tempOperator: ${tempOperator}`);
       num1 = "";
       num2 = "";
       operator = "";
-      console.log(`tempOperator: ${tempOperator}`);
-    }
-
-    if (tempOperator !== "C" && operator !== "") {
-      result = calculate(parseInt(num1), parseInt(num2), operator);
+      tempOperator = "";
+    } else if (tempOperator !== "C" && operator !== "") {
+      result = calculate(parseFloat(num1), parseFloat(num2), operator);
       console.log(`result: ${result}`);
       displayElement.textContent = result;
       num1 = result;
@@ -82,7 +81,7 @@ const calculate = (num1, num2, operator) => {
   if (output % 1 !== 0) {
     digitsCount = output.toString().split(".")[1].length;
     output =
-      digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
+      digitsCount <= 10 ? output.toFixed(digitsCount) : output.toFixed(10);
   }
 
   return output;
