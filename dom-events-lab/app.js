@@ -28,11 +28,17 @@ calculator.addEventListener("click", (event) => {
 
   if (event.target.classList.contains("operator")) {
     operator = event.target.innerText;
+    if (operator === "C") {
+      displayElement.textContent = 0;
+      num1 = "";
+      num2 = "";
+      operator = "";
+    }
     console.log(`operator: ${operator}`);
   }
 
   if (event.target.classList.contains("equals")) {
-    result = calculate(num1, num2, operator);
+    result = calculate(parseInt(num1), parseInt(num2), operator);
     console.log(`result: ${result}`);
     displayElement.textContent = result;
     num1 = "";
@@ -46,13 +52,13 @@ const calculate = (num1, num2, operator) => {
   let output = 0;
 
   if (operator === "+") {
-    output = parseInt(num1) + parseInt(num2);
+    output = num1 + num2;
   } else if (operator === "-") {
-    output = parseInt(num1) - parseInt(num2);
+    output = num1 - num2;
   } else if (operator === "*") {
-    output = parseInt(num1) * parseInt(num2);
+    output = num1 * num2;
   } else if (operator === "/") {
-    output = parseInt(num1) / parseInt(num2);
+    output = num1 / num2;
   }
 
   return output;
