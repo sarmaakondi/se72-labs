@@ -5,6 +5,7 @@ let result = 0;
 let num1 = "";
 let num2 = "";
 let operator = "";
+let tempOperator = "";
 
 /*------------------------ Cached Element References ------------------------*/
 const calculator = document.getElementById("calculator");
@@ -27,13 +28,28 @@ calculator.addEventListener("click", (event) => {
   }
 
   if (event.target.classList.contains("operator")) {
-    operator = event.target.innerText;
-    if (operator === "C") {
+    tempOperator = event.target.innerText;
+
+    if (tempOperator === "C") {
       displayElement.textContent = 0;
       num1 = "";
       num2 = "";
       operator = "";
+      console.log(`tempOperator: ${tempOperator}`);
     }
+
+    if (tempOperator !== "C" && operator !== "") {
+      result = calculate(parseInt(num1), parseInt(num2), operator);
+      console.log(`result: ${result}`);
+      displayElement.textContent = result;
+      num1 = result;
+      num2 = "";
+      operator = tempOperator;
+      tempOperator = "";
+    } else {
+      operator = event.target.innerText;
+    }
+
     console.log(`operator: ${operator}`);
   }
 
@@ -58,7 +74,12 @@ const calculate = (num1, num2, operator) => {
   } else if (operator === "*") {
     output = num1 * num2;
   } else if (operator === "/") {
-    output = num1 / num2;
+    if (num2 !== 0) {
+      output = num1 / num2;
+      digitsCount = output.toString().split(".")[1].length;
+      output =
+        digitsCount <= 13 ? output.toFixed(digitsCount) : output.toFixed(13);
+    }
   }
 
   return output;
