@@ -10,7 +10,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: gainsboro;
+  background-color: fdfcfc;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
@@ -48,4 +48,30 @@ h1 {
   background-color: rgb(179, 85, 51);
   color: #fff;
   outline: none;
+}
+
+button.sqr {
+  background-color: #c95a5a;
+  box-shadow: 0 0 5px #e6a6a6;
+  border: none;
+  outline: none;
+  color: #fdfcfc;
+}
+
+button.sqr.clicked {
+  animation: grow 0.5s;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

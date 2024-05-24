@@ -29,6 +29,7 @@ function init() {
   turn = "X";
   winner = false;
   tie = false;
+  squareElements.forEach((square) => square.classList.remove("clicked"));
   render();
 }
 
@@ -56,17 +57,19 @@ function updateMessage() {
 }
 
 function handleClick(event) {
-  const squareIndex = event.target.id;
-  const squareValue = board[squareIndex];
-  if (squareValue) {
-    alert("The selected square is not empty, try another!!!");
-    return;
+  if (!winner) {
+    const squareIndex = event.target.id;
+    const squareValue = board[squareIndex];
+    if (squareValue) {
+      alert("The selected square is not empty, try another!!!");
+      return;
+    }
+    placePiece(squareIndex);
+    checkForWinner();
+    checkForTie();
+    switchPlayerTurn();
+    render();
   }
-  placePiece(squareIndex);
-  checkForWinner();
-  checkForTie();
-  switchPlayerTurn();
-  render();
 }
 
 function placePiece(index) {
@@ -104,5 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 });
 
-boardElement.addEventListener("click", handleClick);
+boardElement.addEventListener("click", (event) => {
+  const squareButtonElement = document.getElementById(event.target.id);
+  if (!winner) squareButtonElement.classList.add("clicked");
+  handleClick(event);
+});
 resetButtonElement.addEventListener("click", init);
