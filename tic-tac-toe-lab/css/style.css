@@ -30,10 +30,11 @@ body {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 36px;
 }
 
 #message {
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -45,9 +46,14 @@ h1 {
   margin-top: 40px;
   border: none;
   border-radius: 10px;
-  background-color: rgb(179, 85, 51);
+  background-color: #5e5c5c;
   color: #fff;
   outline: none;
+  cursor: pointer;
+}
+
+#reset:active {
+  transform: scale(0.95);
 }
 
 button.sqr {
@@ -56,6 +62,7 @@ button.sqr {
   border: none;
   outline: none;
   color: #fdfcfc;
+  cursor: pointer;
 }
 
 button.sqr.clicked {
