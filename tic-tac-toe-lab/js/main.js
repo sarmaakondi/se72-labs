@@ -15,25 +15,24 @@ let board;
 let turn;
 let winner;
 let tie;
-
-board = ["", "", "", "", "", "", "", "", ""];
-turn = "X";
-winner = false;
-tie = false;
+let message;
 
 /*------------------------ Cached Element References ------------------------*/
 const squareElements = document.querySelectorAll(".sqr");
 const messageElement = document.getElementById("message");
+const boardElement = document.querySelector(".board");
+const resetButtonElement = document.getElementById("reset");
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
-  console.log("Game started");
+  board = ["", "", "", "", "", "", "", "", ""];
+  turn = "X";
+  winner = false;
+  tie = false;
   render();
 }
 
 function render() {
-  console.log(squareElements);
-  console.log("Render function");
   updateBoard();
   updateMessage();
 }
@@ -47,11 +46,56 @@ function updateBoard() {
 
 function updateMessage() {
   if (winner === false && tie === false) {
-    console.log(`Player turn: ${turn}`);
+    message = `${turn}'s turn`;
   } else if (winner === false && tie === true) {
-    console.log("It's a tie");
+    message = "It's a tie";
   } else {
-    console.log(`The winner is: ${turn}`);
+    message = `The winner is: ${turn}`;
+  }
+  messageElement.textContent = message;
+}
+
+function handleClick(event) {
+  const squareIndex = event.target.id;
+  const squareValue = board[squareIndex];
+  if (squareValue) {
+    alert("The selected square is not empty, try another!!!");
+    return;
+  }
+  placePiece(squareIndex);
+  checkForWinner();
+  checkForTie();
+  switchPlayerTurn();
+  render();
+}
+
+function placePiece(index) {
+  board[index] = turn;
+}
+
+function checkForWinner() {
+  winningCombos.forEach((combo) => {
+    firstSquareValue = board[combo[0]];
+    secondSquareValue = board[combo[1]];
+    thirdSquareValue = board[combo[2]];
+    if (firstSquareValue) {
+      firstSquareValue === secondSquareValue &&
+      firstSquareValue === thirdSquareValue
+        ? (winner = true)
+        : winner;
+    }
+  });
+}
+
+function checkForTie() {
+  if (!winner) {
+    board.includes("") ? tie : (tie = true);
+  }
+}
+
+function switchPlayerTurn() {
+  if (!winner) {
+    turn === "X" ? (turn = "O") : (turn = "X");
   }
 }
 
@@ -59,3 +103,6 @@ function updateMessage() {
 document.addEventListener("DOMContentLoaded", function () {
   init();
 });
+
+boardElement.addEventListener("click", handleClick);
+resetButtonElement.addEventListener("click", init);

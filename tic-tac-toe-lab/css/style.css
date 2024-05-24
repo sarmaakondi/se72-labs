@@ -37,3 +37,15 @@ h1 {
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+#reset {
+  font-family: inherit;
+  font-size: 20px;
+  padding: 4px 16px;
+  margin-top: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(179, 85, 51);
+  color: #fff;
+  outline: none;
+}
