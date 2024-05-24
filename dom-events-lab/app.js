@@ -18,12 +18,10 @@ calculator.addEventListener("click", (event) => {
     if (operator == "") {
       num1 += event.target.innerText;
       displayElement.textContent = num1;
-      console.log(`num1: ${num1}`);
     } else {
       displayElement.textContent = "";
       num2 += event.target.innerText;
       displayElement.textContent = num2;
-      console.log(`num2: ${num2}`);
     }
   }
 
@@ -32,14 +30,12 @@ calculator.addEventListener("click", (event) => {
 
     if (tempOperator === "C") {
       displayElement.textContent = 0;
-      console.log(`tempOperator: ${tempOperator}`);
       num1 = "";
       num2 = "";
       operator = "";
       tempOperator = "";
     } else if (tempOperator !== "C" && operator !== "") {
       result = calculate(parseFloat(num1), parseFloat(num2), operator);
-      console.log(`result: ${result}`);
       displayElement.textContent = result;
       num1 = result;
       num2 = "";
@@ -48,13 +44,10 @@ calculator.addEventListener("click", (event) => {
     } else {
       operator = event.target.innerText;
     }
-
-    console.log(`operator: ${operator}`);
   }
 
   if (event.target.classList.contains("equals")) {
     result = calculate(parseFloat(num1), parseFloat(num2), operator);
-    console.log(`result: ${result}`);
     displayElement.textContent = result;
     num1 = result;
     num2 = "";
@@ -76,7 +69,6 @@ const calculate = (num1, num2, operator) => {
     if (num2 === 0) return NaN;
     output = num1 / num2;
   }
-  console.log(`output: ${output}`);
 
   if (output % 1 !== 0) {
     digitsCount = output.toString().split(".")[1].length;
