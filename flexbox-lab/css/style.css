@@ -11,6 +11,16 @@ body {
 nav {
   background-color: white;
   padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+#destinations,
+#actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 p {
