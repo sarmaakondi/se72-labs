@@ -7,6 +7,12 @@ const state = {
   sleepiness: 0,
 };
 
+const stateButtonMap = {
+  play: "boredom",
+  feed: "hunger",
+  sleep: "sleepiness",
+};
+
 let timer;
 let gameOver;
 
@@ -14,14 +20,9 @@ let gameOver;
 const boredomStatElement = document.getElementById("boredom-stat");
 const hungerStatElement = document.getElementById("hunger-stat");
 const sleepinessStatElement = document.getElementById("sleepiness-stat");
-
-const playButtonElement = document.getElementById("play");
-const feedButtonElement = document.getElementById("feed");
-const sleepButtonElement = document.getElementById("sleep");
-
 const gameMessageElement = document.getElementById("message");
-
 const resetButtonElement = document.getElementById("restart");
+const actionButtonElements = document.querySelectorAll(".action-button");
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
@@ -39,8 +40,7 @@ function runGame() {
 function render() {
   if (gameOver) {
     clearInterval(timer);
-    gameMessageElement.classList.remove("hidden");
-    resetButtonElement.classList.remove("hidden");
+    toggleGameResetClass();
   }
   boredomStatElement.textContent = state.boredom;
   hungerStatElement.textContent = state.hunger;
@@ -59,5 +59,29 @@ function checkGameOver() {
   });
 }
 
+function actionButtonClick(event) {
+  state[stateButtonMap[event.target.id]] = 0;
+  render();
+}
+
+function toggleGameResetClass() {
+  gameMessageElement.classList.toggle("hidden");
+  resetButtonElement.classList.toggle("hidden");
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
 document.addEventListener("DOMContentLoaded", init);
+
+actionButtonElements.forEach((actionButtonElement) => {
+  actionButtonElement.addEventListener("click", (event) =>
+    actionButtonClick(event)
+  );
+});
+
+resetButtonElement.addEventListener("click", () => {
+  toggleGameResetClass();
+  Object.keys(state).forEach((key) => {
+    state[key] = 0;
+  });
+  init();
+});
