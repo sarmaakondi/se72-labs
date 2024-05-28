@@ -26,12 +26,38 @@ const resetButtonElement = document.getElementById("restart");
 /*-------------------------------- Functions --------------------------------*/
 function init() {
   gameOver = false;
-  timer = setInterval(runGame(), 2000);
+  timer = setInterval(runGame, 2000);
   render();
 }
 
 function runGame() {
-  console.log("The game is running!");
+  updateStates();
+  checkGameOver();
+  render();
 }
+
+function render() {
+  if (gameOver) {
+    clearInterval(timer);
+    gameMessageElement.classList.remove("hidden");
+    resetButtonElement.classList.remove("hidden");
+  }
+  boredomStatElement.textContent = state.boredom;
+  hungerStatElement.textContent = state.hunger;
+  sleepinessStatElement.textContent = state.sleepiness;
+}
+
+function updateStates() {
+  Object.keys(state).forEach((key) => {
+    state[key] += Math.floor(Math.random() * Object.keys(state).length);
+  });
+}
+
+function checkGameOver() {
+  Object.keys(state).forEach((key) => {
+    if (state[key] >= 10) gameOver = true;
+  });
+}
+
 /*----------------------------- Event Listeners -----------------------------*/
 document.addEventListener("DOMContentLoaded", init);
