@@ -120,14 +120,11 @@ console.log("Exercise 1 Correct Result: ", [
 
 // Hint:  Return a new object literal from the callback that looks something like { first: "First Name", last: "Last Name" }
 
-let inventorNames = [];
+// let inventorNames = [];
 
 // Enter your solution code here:
-inventors.map((inventor) => {
-  let tempObject = { first: "", last: "" };
-  tempObject["first"] = inventor["first"];
-  tempObject["last"] = inventor["last"];
-  inventorNames.push(tempObject);
+const inventorNames = inventors.map((inventor) => {
+  return { first: inventor["first"], last: inventor["last"] };
 });
 
 // Check your return value:
@@ -151,11 +148,13 @@ console.log("Exercise 2 Correct Result: ", [
 
 // 3. Sort the inventors by birth date in ascending order (from those born furthest in the past to those born most recently).
 
-let sortedByBirthYear = [];
+// let sortedByBirthYear = [];
 
 // Enter your solution code here:
 const sortProperty = "year";
-sortedByBirthYear = inventors.sort((a, b) => a[sortProperty] - b[sortProperty]);
+const sortedByBirthYear = inventors.sort(
+  (a, b) => a[sortProperty] - b[sortProperty]
+);
 
 // Check your return value:
 console.log("Exercise 3 My Result: ", sortedByBirthYear);
@@ -182,12 +181,12 @@ console.log("Exercise 3 Correct Result: ", [
 // -  Utilize the Array.prototype.find() method to locate the object for the inventor named 'Ada'.
 // -  Assign the found inventor object to the variable 'inventorNamedAda'
 
-let inventorNamedAda = {};
+// let inventorNamedAda = {};
 
 // Enter you solution code here:
-inventors.find((inventor) => {
+const inventorNamedAda = inventors.find((inventor) => {
   if (inventor["first"].includes("Ada")) {
-    inventorNamedAda = inventor;
+    return inventor;
   }
 });
 
@@ -208,12 +207,12 @@ console.log("Exercise 4 Correct Result: ", {
 // Hint: Use the String.prototype.split method to separate the first and last names. You can split the string using ', ' as the separator.
 // After splitting the names, rearrange them to the "First Last" format.
 
-let firstLast = [];
+// let firstLast = [];
 
 // Enter your solution code here:
-people.map((person) => {
+const firstLast = people.map((person) => {
   const [lastName, firstName] = person.split(",");
-  firstLast.push(`${firstName.trim()} ${lastName.trim()}`);
+  return `${firstName.trim()} ${lastName.trim()}`;
 });
 
 // Check your return value:
