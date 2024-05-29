@@ -269,13 +269,32 @@ console.log("Exercise 5 Correct Result: ", [
 // - Use the Array.prototype.some() method to check if any person in the array is 18 years old or older.
 // - Store the result (true or false) in the variable 'isAdultPresent'.
 
-let isAdultPresent = null;
+// let isAdultPresent = null;
 
 // Enter your solution code here:
-devs.some((dev) => {
-  if (new Date().getFullYear() - dev["year"] > 18) isAdultPresent = true;
+const isAdultPresent = devs.some((dev) => {
+  return new Date().getFullYear() - dev["year"] >= 18;
 });
 
 // Check your return value:
 console.log("Exercise 6 My Result: ", isAdultPresent);
 console.log("Exercise 6 Correct Result: ", true);
+
+// Array.prototype.every()
+
+// 7. Use Array.prototype.every() to determine if every person in the devs array is 19 years old or older.
+
+// - You have an array of individuals, each with their year of birth represented by the 'year' property.
+// - Use the Array.prototype.every() method to verify if every individual in the array is at least 19 years old.
+// - Store the result (true or false) in the variable 'isEveryone19OrOlder'.
+
+// let isEveryone19OrOlder = null;
+
+// Enter your solution code here:
+const isEveryone19OrOlder = devs.every((dev) => {
+  return new Date().getFullYear() - dev["year"] >= 19;
+});
+
+// Check your return value:
+console.log("Exercise 7 My Result: ", isEveryone19OrOlder);
+console.log("Exercise 7 Correct Result: ", false);
