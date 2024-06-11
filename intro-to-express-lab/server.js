@@ -30,13 +30,15 @@ server.get("/roll", (req, res) => {
 
 // positive case
 server.get("/roll/:maxValue", (req, res) => {
-  const maxValue = req.params.maxValue;
-  const diceValue = maxValue > 0 ? Math.ceil(Math.random() * maxValue) : 1;
-  if (maxValue <= 0) {
-    res.send(
-      "<h1>Inavlid value! Please try entering a number greater than 0.</h1>"
-    );
+  const maxValue = parseInt(req.params.maxValue, 10);
+  if (isNaN(maxValue)) {
+    res.send("<h1>You must specify a number.</h1>");
+  } else if (maxValue === 0) {
+    res.send("<h1>Dice cannot be rolled 0 times. Try again!</h1>");
+  } else if (maxValue < 0) {
+    res.send("<h1>Number cannot be negative.</h1>");
   } else {
+    const diceValue = Math.floor(Math.random() * maxValue) + 1;
     res.send(`<h1>You rolled a ${diceValue}</h1>`);
   }
 });
