@@ -71,3 +71,45 @@ server.get("/collectibles/:index", (req, res) => {
     );
   }
 });
+
+// filter shoes by query parameters
+server.get("/shoes", (req, res) => {
+  const shoes = [
+    { name: "Birkenstocks", price: 50, type: "sandal" },
+    { name: "Air Jordans", price: 500, type: "sneaker" },
+    { name: "Air Mahomeses", price: 501, type: "sneaker" },
+    { name: "Utility Boots", price: 20, type: "boot" },
+    { name: "Velcro Sandals", price: 15, type: "sandal" },
+    { name: "Jet Boots", price: 1000, type: "boot" },
+    { name: "Fifty-Inch Heels", price: 175, type: "heel" },
+  ];
+  const minPrice = req.query.minPrice;
+  const maxPrice = req.query.maxPrice;
+  const type = req.query.type;
+  let filteredShoes = [...shoes];
+
+  if (minPrice && minPrice >= 0 && !isNaN(minPrice)) {
+    filteredShoes = filteredShoes.filter((shoe) => shoe.price >= minPrice);
+  } else if (typeof minPrice === "string") {
+    res.send("<h1>Price must be specified as a positive number only.</h1>");
+    return;
+  }
+
+  if (maxPrice && maxPrice >= 0 && !isNaN(maxPrice)) {
+    filteredShoes = filteredShoes.filter((shoe) => shoe.price <= maxPrice);
+  } else if (typeof maxPrice === "string") {
+    res.send("<h1>Price must be specified as a positive number only.</h1>");
+    return;
+  }
+
+  if (type && Math.abs(type) >= 0) {
+    res.send("<h1>Entered invalid value for type!</h1>");
+    return;
+  } else if (type) {
+    filteredShoes = filteredShoes.filter(
+      (shoe) => shoe.type.toLowerCase() === type.toLowerCase()
+    );
+  }
+
+  res.send({ ...filteredShoes });
+});
