@@ -23,6 +23,12 @@ server.get("/greetings/:name?", (req, res) => {
 });
 
 // rolling the dice
+// edge case
+server.get("/roll", (req, res) => {
+  res.send(`<h1>Correct usage is: '/roll/number-greater-than-0'</h1>`);
+});
+
+// positive case
 server.get("/roll/:maxValue", (req, res) => {
   const maxValue = req.params.maxValue;
   const diceValue = maxValue > 0 ? Math.ceil(Math.random() * maxValue) : 1;
