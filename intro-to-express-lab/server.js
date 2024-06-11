@@ -12,3 +12,12 @@ server.listen(port, () => {
 server.get("/", (req, res) => {
   res.send("<h1>Intro to Express Lab</h1>");
 });
+
+// greet the user
+server.get("/greetings/:name", (req, res) => {
+  const name = req.params.name;
+  const upperInitial = name[0].toUpperCase();
+  const properCaseName = `${upperInitial}${name.slice(1)}`;
+
+  res.send(`<h1>Hello there, ${properCaseName}</h1>`);
+});
