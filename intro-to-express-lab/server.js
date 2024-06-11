@@ -14,8 +14,8 @@ server.get("/", (req, res) => {
 });
 
 // greet the user
-server.get("/greetings/:name", (req, res) => {
-  const name = req.params.name;
+server.get("/greetings/:name?", (req, res) => {
+  const name = req.params.name || "Stranger!";
   const upperInitial = name[0].toUpperCase();
   const properCaseName = `${upperInitial}${name.slice(1)}`;
 
