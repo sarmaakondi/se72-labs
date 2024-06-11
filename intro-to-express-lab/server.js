@@ -21,3 +21,16 @@ server.get("/greetings/:name?", (req, res) => {
 
   res.send(`<h1>Hello there, ${properCaseName}</h1>`);
 });
+
+// rolling the dice
+server.get("/roll/:maxValue", (req, res) => {
+  const maxValue = req.params.maxValue;
+  const diceValue = maxValue > 0 ? Math.ceil(Math.random() * maxValue) : 1;
+  if (maxValue <= 0) {
+    res.send(
+      "<h1>Inavlid value! Please try entering a number greater than 0.</h1>"
+    );
+  } else {
+    res.send(`<h1>You rolled a ${diceValue}</h1>`);
+  }
+});
