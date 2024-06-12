@@ -66,6 +66,18 @@ server.get("/menu", (req, res) => {
   res.render("menu.ejs", { menu: RESTAURANT.menu });
 });
 
+server.get("/menu/:category", (req, res) => {
+  const category = req.params.category;
+  const menuItems = RESTAURANT.menu.filter(
+    (item) => item.category === category
+  );
+  const categoryProperCase = category[0].toUpperCase() + category.slice(1);
+  res.render("category.ejs", {
+    menu: menuItems,
+    category: categoryProperCase,
+  });
+});
+
 server.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

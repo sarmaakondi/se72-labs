@@ -17,7 +17,8 @@
   <!-- displaying items categorically -->
   <% categories.forEach((category) => { %>
   <!-- disply category type -->
-  <h2><%= category.toUpperCase() %></h2>
+  <% const categoryProperCase = category[0].toUpperCase() + category.slice(1); %>
+  <h2><%= categoryProperCase %></h2>
   <!-- display item details -->
   <% menu.forEach((item) => { %>
   <% if (item.category === category) { %>
