@@ -58,9 +58,12 @@ const RESTAURANT = {
 };
 
 // routes
-// root
 server.get("/", (req, res) => {
   res.render("home.ejs", { restaurant: RESTAURANT });
+});
+
+server.get("/menu", (req, res) => {
+  res.render("menu.ejs", { menu: RESTAURANT.menu });
 });
 
 server.listen(port, () => {

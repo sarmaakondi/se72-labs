@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+</head>
+<%- include("./partials/nav") %>
+
+<body>
+  <h1>Full Menu</h1>
+
+  <!-- extract categories from menu -->
+  <% const categories = [...new Set(menu.map(item => item.category))] %>
+
+  <!-- displaying items categorically -->
+  <% categories.forEach((category) => { %>
+  <!-- disply category type -->
+  <h2><%= category.toUpperCase() %></h2>
+  <!-- display item details -->
+  <% menu.forEach((item) => { %>
+  <% if (item.category === category) { %>
+  <h3><%= item.name %></h3>
+  <ul>
+    <dl>
+      <dt>Price:</dt>
+      <dd>$<%= item.price.toFixed(2) %></dd>
+      <dt>Rating:</dt>
+      <dd><%= item.rating %></dd>
+      <dt>Details:</dt>
+      <dd><%= item.details %></dd>
+    </dl>
+  </ul>
+  <% } %>
+  <% }) %>
+  <% }) %>
+</body>
+
+</html>
