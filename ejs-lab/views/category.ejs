@@ -13,7 +13,7 @@
   <h2><%= category %></h2>
   <!-- display item details -->
   <% menu.forEach((item) => { %>
-  <h3><%= item.name %></h3>
+  <h3><%= item.rating === 5 ? item.name + " 🌟" : item.name %></h3>
   <ul>
     <dl>
       <dt>Price:</dt>
