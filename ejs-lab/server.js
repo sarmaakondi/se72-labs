@@ -2,6 +2,9 @@ const express = require("express");
 const server = express();
 const port = 3000;
 
+// server static files from the public folder
+server.use(express.static("public"));
+
 // data
 const RESTAURANT = {
   name: "The Green Byte Bistro",
