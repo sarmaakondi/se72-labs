@@ -60,7 +60,7 @@ const RESTAURANT = {
 // routes
 // root
 server.get("/", (req, res) => {
-  res.send("Hello There!");
+  res.render("home.ejs", { restaurant: RESTAURANT });
 });
 
 server.listen(port, () => {
