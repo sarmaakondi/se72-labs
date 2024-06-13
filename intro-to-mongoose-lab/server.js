@@ -22,7 +22,13 @@ const operations = [
   },
   { id: 3, description: "Update a customer" },
   { id: 4, description: "Delete a customer" },
-  { id: 5, description: "Quit" },
+  {
+    id: 5,
+    description: "Quit",
+    action: async () => {
+      await quitApplication();
+    },
+  },
 ];
 
 // dotenv initialization
@@ -119,12 +125,17 @@ const displayCustomers = async () => {
     console.log("Below is a list of customers:\n");
     for (const customer of customers) {
       console.log(
-        `id:${customer.id} -- Name: ${customer.name}, Age: ${customer.age}`
+        `id: ${customer.id} -- Name: ${customer.name}, Age: ${customer.age}`
       );
     }
   } catch (error) {
     console.log("Error while fetching customers: ", error);
   }
+};
+
+// quit
+const quitApplication = async () => {
+  console.log("Quitting application now...\nHave a great day!");
 };
 
 // handle CRM operations
