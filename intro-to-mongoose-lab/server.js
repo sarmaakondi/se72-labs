@@ -21,7 +21,13 @@ const operations = [
     },
   },
   { id: 3, description: "Update a customer" },
-  { id: 4, description: "Delete a customer" },
+  {
+    id: 4,
+    description: "Delete a customer",
+    action: async () => {
+      await deleteCustomer();
+    },
+  },
   {
     id: 5,
     description: "Quit",
@@ -133,9 +139,41 @@ const displayCustomers = async () => {
   }
 };
 
+// delete customer
+const deleteCustomer = async () => {
+  try {
+    const customers = await Customer.find();
+    console.log("Below is a list of customers:\n");
+    for (const customer of customers) {
+      console.log(
+        `id: ${customer.id} -- Name: ${customer.name}, Age: ${customer.age}`
+      );
+    }
+    // ask user to enter the customer ID
+    let customerId;
+    do {
+      customerId = userPrompt(
+        "\nCopy and paste the id of the customer you would like to delete here: "
+      );
+    } while (customerId.trim() === "");
+    // perform customer delete operation
+    const matchingCustomer = customers.find(
+      (customer) => customer.id === customerId
+    );
+    if (matchingCustomer) {
+      await Customer.findByIdAndDelete(customerId);
+      console.log("Customer deleted successfully!");
+    } else {
+      console.log(`Customer not found for the 'ID: ${customerId}', try again!`);
+    }
+  } catch (error) {
+    console.log("Error while deleting customer: ", error);
+  }
+};
+
 // quit
 const quitApplication = async () => {
-  console.log("Quitting application now...\nHave a great day!");
+  console.log("Exiting application now...\nHave a great day!");
 };
 
 // handle CRM operations
