@@ -13,7 +13,13 @@ const operations = [
       await createCustomer();
     },
   },
-  { id: 2, description: "View all customers" },
+  {
+    id: 2,
+    description: "View all customers",
+    action: async () => {
+      await displayCustomers();
+    },
+  },
   { id: 3, description: "Update a customer" },
   { id: 4, description: "Delete a customer" },
   { id: 5, description: "Quit" },
@@ -103,6 +109,21 @@ const createCustomer = async () => {
     console.log("Added customer details successfully!");
   } catch (error) {
     console.log("Error occurred: ", error);
+  }
+};
+
+// view all customers
+const displayCustomers = async () => {
+  try {
+    const customers = await Customer.find();
+    console.log("Below is a list of customers:\n");
+    for (const customer of customers) {
+      console.log(
+        `id:${customer.id} -- Name: ${customer.name}, Age: ${customer.age}`
+      );
+    }
+  } catch (error) {
+    console.log("Error while fetching customers: ", error);
   }
 };
 
