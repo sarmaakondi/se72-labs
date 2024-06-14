@@ -8,8 +8,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ecede7;
-  color: #333333;
+  background-color: hsl(70, 14%, 92%);
+  color: hsl(0, 0%, 20%);
 }
 
 .quote-bg {
