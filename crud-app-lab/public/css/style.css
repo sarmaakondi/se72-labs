@@ -138,7 +138,7 @@ small {
   padding: 8px;
   margin-bottom: 24px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 #quotes-container li:hover {
@@ -146,13 +146,18 @@ small {
   background-color: hsl(70, 14%, 87%);
 }
 
-.quotes-nav {
+.quotes-nav,
+.quote-nav {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   font-family: "Montserrat", sans-serif;
   margin-bottom: 32px;
+}
+
+.quote-nav {
+  justify-content: space-between;
 }
 
 .form-nav {
@@ -163,6 +168,7 @@ small {
 }
 
 .quotes-nav a,
+.quote-nav a,
 .form-nav a {
   font-family: "Merriweather", sans-serif;
   cursor: pointer;
@@ -170,11 +176,81 @@ small {
   text-decoration: none;
   color: hsl(10, 60%, 44%);
   border-bottom: 2px solid;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.quote-nav a {
+  margin-right: 16px;
 }
 
 .quotes-nav a:hover,
+.quote-nav a:hover,
 .form-nav a:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   border: none;
+}
+
+ul a {
+  text-decoration: none;
+  color: hsl(0, 0%, 20%);
+}
+
+.show-quote {
+  width: 525px;
+  padding: 8px;
+  margin-bottom: 32px;
+}
+
+#author {
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+#author::first-letter {
+  font-size: 48px;
+}
+
+#quote {
+  line-height: 1.5;
+}
+
+.quote-actions {
+  width: 100%;
+}
+
+.action-container {
+  width: 80%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.action-container li {
+  list-style: none;
+}
+
+#upvote,
+#downvote,
+#edit,
+#delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tooltip {
+  margin-bottom: 8px;
+}
+
+.tooltip {
+  color: hsl(10, 60%, 44%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#upvote:hover .tooltip,
+#downvote:hover .tooltip,
+#edit:hover .tooltip,
+#delete:hover .tooltip {
+  opacity: 1;
 }

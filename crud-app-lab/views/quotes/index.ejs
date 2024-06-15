@@ -14,7 +14,9 @@
       </div>
       <ul>
         <% quotes.forEach(quote => { %>
-        <li><%= quote.quote %></li>
+        <a href="/quotes/<%= quote._id %>">
+          <li><%= quote.quote %></li>
+        </a>
         <% }) %>
       </ul>
     </div>

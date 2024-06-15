@@ -36,6 +36,12 @@ server.get("/quotes/new", (req, res) => {
   res.render("quotes/new.ejs");
 });
 
+// get quote by _id | GET
+server.get("/quotes/:quoteId", async (req, res) => {
+  const quote = await Quote.findById(req.params.quoteId);
+  res.render("quotes/show.ejs", { quote: quote });
+});
+
 // store the quote in MongoDB | POST
 server.post("/quotes", async (req, res) => {
   let quote = req.body.quote;
