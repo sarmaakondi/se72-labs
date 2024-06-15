@@ -8,7 +8,10 @@
   </head>
   <body>
     <div id="quotes-container">
-      <h1 id="title">All Quotes</h1>
+      <div class="quotes-nav">
+        <h1>All Quotes</h1>
+        <a href="/quotes/new">Add Quote</a>
+      </div>
       <ul>
         <% quotes.forEach(quote => { %>
         <li><%= quote.quote %></li>

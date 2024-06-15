@@ -69,16 +69,24 @@ body {
   margin-bottom: 8px;
 }
 
+.form-container {
+  width: 525px;
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
+}
+
+form {
+  width: 80%;
 }
 
 input,
 select,
 textarea,
 #btn-add {
-  width: 300px;
+  width: 100%;
   height: 40px;
   font-family: inherit;
   padding: 8px;
@@ -96,15 +104,15 @@ textarea {
   text-transform: uppercase;
 }
 
+#btn-add {
+  margin-top: 24px;
+}
+
 input,
 select,
 textarea {
   margin-top: 8px;
   margin-bottom: 16px;
-}
-
-label {
-  font-size: 18px;
 }
 
 small {
@@ -136,4 +144,37 @@ small {
 #quotes-container li:hover {
   transform: scale(1.02);
   background-color: hsl(70, 14%, 87%);
+}
+
+.quotes-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 32px;
+}
+
+.form-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.quotes-nav a,
+.form-nav a {
+  font-family: "Merriweather", sans-serif;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  color: hsl(10, 60%, 44%);
+  border-bottom: 2px solid;
+  transition: all 0.3s ease-in-out;
+}
+
+.quotes-nav a:hover,
+.form-nav a:hover {
+  transform: scale(1.2);
+  border: none;
 }
