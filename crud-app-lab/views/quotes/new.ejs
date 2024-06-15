@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Add Quote</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1 id="form-title">Add New Quote!</h1>
+      <form action="/quotes" method="post">
+        <div class="form-field">
+          <label for="quote">Quote</label>
+          <small>required</small>
+          <input type="text" name="quote" id="quote" required />
+        </div>
+
+        <div class="form-field">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" />
+        </div>
+
+        <div class="form-field">
+          <label for="category">Category</label>
+          <select name="category" id="category">
+            <option value="uncategorized"></option>
+            <option value="inspirational">Inspirational</option>
+            <option value="motivational">Motivational</option>
+            <option value="funny">Funny</option>
+            <option value="philosophical">Philosophical</option>
+            <option value="life-lessons">Life Lessons</option>
+          </select>
+        </div>
+
+        <button id="btn-add" type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -21,6 +21,11 @@ server.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
+// add new quote | GET
+server.get("/quotes/new", (req, res) => {
+  res.render("quotes/new.ejs");
+});
+
 // server listening on specified port
 server.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
