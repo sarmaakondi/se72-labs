@@ -74,11 +74,18 @@ body {
 
 input,
 select,
+textarea,
 #btn-add {
   width: 300px;
   height: 40px;
   font-family: inherit;
   padding: 8px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
 }
 
 #browse-quotes,
@@ -88,7 +95,8 @@ select,
 }
 
 input,
-select {
+select,
+textarea {
   margin-top: 8px;
   margin-bottom: 16px;
 }
@@ -99,4 +107,5 @@ label {
 
 small {
   font-size: 12px;
+  margin-top: 4px;
 }
