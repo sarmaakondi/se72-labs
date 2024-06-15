@@ -10,6 +10,8 @@ body {
   font-family: "Merriweather", sans-serif;
   background-color: hsl(70, 14%, 92%);
   color: hsl(0, 0%, 20%);
+  display: flex;
+  justify-content: center;
 }
 
 .quote-bg {
@@ -108,4 +110,30 @@ label {
 small {
   font-size: 12px;
   margin-top: 4px;
+}
+
+#quotes-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  width: 525px;
+  margin-top: 48px;
+}
+
+#quotes-container ul {
+  list-style: none;
+}
+
+#quotes-container li {
+  border-left: 4px solid lightslategray;
+  padding: 8px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#quotes-container li:hover {
+  transform: scale(1.02);
+  background-color: hsl(70, 14%, 87%);
 }

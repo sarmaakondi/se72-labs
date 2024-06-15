@@ -25,6 +25,12 @@ server.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
+// get all quotes | GET
+server.get("/quotes", async (req, res) => {
+  const quotes = await Quote.find();
+  res.render("quotes/index.ejs", { quotes: quotes });
+});
+
 // add new quote | GET
 server.get("/quotes/new", (req, res) => {
   res.render("quotes/new.ejs");
@@ -69,7 +75,7 @@ server.post("/quotes", async (req, res) => {
 
   // add post to MongoDB
   await Quote.create(quoteData);
-  res.redirect("/quotes/new");
+  res.redirect("/quotes");
 });
 
 // server listening on specified port
