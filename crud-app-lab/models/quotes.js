@@ -6,8 +6,8 @@ const quoteSchema = new mongoose.Schema(
     quote: { type: String, required: true },
     author: { type: String },
     category: { type: String },
-    upvotes: { type: Number, default: 0 },
-    downvotes: { type: Number, default: 0 },
+    upvotes: { type: Number, default: 0, set: (value) => Math.max(value, 0) },
+    downvotes: { type: Number, default: 0, set: (value) => Math.max(value, 0) },
   },
   { timestamps: true }
 );

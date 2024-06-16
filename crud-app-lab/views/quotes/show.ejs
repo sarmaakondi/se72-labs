@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/script.js" defer></script>
-    <title>Quote</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="show-quote">
-        <div class="quote-nav">
-          <h1 id="authorName"><%= quote.author %></h1>
-          <a href="/quotes">Browse Quotes</a>
-        </div>
-        <p id="quote"><%= quote.quote %></p>
-      </div>
 
-      <div class="quote-actions">
-        <ul>
-          <div class="action-container">
-            <li id="category">#<%= quote.category %></li>
-            <li id="counter">0</li>
-            <div id="upvote">
-              <small class="tooltip">upvote</small>
-              <i class="fa-solid fa-circle-up"></i>
-            </div>
-            <div id="downvote">
-              <small class="tooltip">downvote</small>
-              <i class="fa-solid fa-circle-down"></i>
-            </div>
-            <div id="edit">
-              <small class="tooltip">edit</small>
-              <a href="/quotes/<%= quote._id %>/edit"
-                ><i class="fa-solid fa-pen-to-square"></i
-              ></a>
-            </div>
-            <div id="delete" data-quote-id="<%= quote._id %>">
-              <small class="tooltip">delete</small>
-              <i class="fa-solid fa-trash-can"></i>
-            </div>
-          </div>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/js/script.js" defer></script>
+  <title>Quote</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="show-quote">
+      <div class="quote-nav">
+        <h1 id="authorName"><%= quote.author %></h1>
+        <a href="/quotes">Browse Quotes</a>
       </div>
+      <p id="quote"><%= quote.quote %></p>
     </div>
-  </body>
+
+    <div class="quote-actions">
+      <ul>
+        <div class="action-container">
+          <li id="category">#<%= quote.category %></li>
+          <li id="counter">
+            <%= Math.max(quote.upvotes - quote.downvotes, 0) %>
+          </li>
+          <div id="upvote">
+            <small class="tooltip">upvote</small>
+            <i class="fa-solid fa-circle-up"></i>
+          </div>
+          <div id="downvote">
+            <small class="tooltip">downvote</small>
+            <i class="fa-solid fa-circle-down"></i>
+          </div>
+          <div id="edit">
+            <small class="tooltip">edit</small>
+            <a href="/quotes/<%= quote._id %>/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+          </div>
+          <div id="delete" data-quote-id="<%= quote._id %>">
+            <small class="tooltip">delete</small>
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</body>
+
 </html>

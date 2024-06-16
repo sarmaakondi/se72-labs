@@ -198,11 +198,11 @@ ul a {
 .show-quote {
   width: 525px;
   padding: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 
 #authorName {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: 2px;
 }
 
@@ -223,6 +223,7 @@ ul a {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  padding: 8px;
 }
 
 .action-container li {
@@ -236,10 +237,12 @@ ul a {
 #upvote,
 #downvote,
 #edit,
-#delete {
+#delete,
+#counter {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 60px;
 }
 
 .tooltip {
@@ -260,6 +263,8 @@ ul a {
 }
 
 .fa-solid.fa-trash-can:active,
-.fa-solid.fa-pen-to-square:active {
+.fa-solid.fa-pen-to-square:active,
+.fa-solid.fa-circle-up:active,
+.fa-solid.fa-circle-down:active {
   transform: scale(0.9);
 }
