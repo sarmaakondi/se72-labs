@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>Edit Quote</title>
+</head>
+
+<body>
+  <div class="form-container">
+    <div class="form-nav">
+      <h1 id="form-title">Edit Quote!</h1>
+      <a href="/quotes">Browse Quotes</a>
+    </div>
+    <form action="/quotes/<%= quote._id %>?_method=PUT" method="post">
+      <div class="form-field">
+        <label for="quote">Quote</label>
+        <small>required</small>
+        <textarea name="quote" id="quote" required>
+<%= quote.quote %>
+          </textarea>
+      </div>
+
+      <div class="form-field">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" value="<%= quote.author %>" />
+      </div>
+
+      <div class="form-field">
+        <label for="category">Category</label>
+        <select name="category" id="category">
+          <option value="uncategorized" <%= quote.category === "" ? "selected" : ""%>></option>
+          <option value="inspirational" <%= quote.category === "inspirational" ? "selected" : ""%>>Inspirational</option>
+          <option value="motivational" <%= quote.category === "motivational" ? "selected" : ""%>>Motivational</option>
+          <option value="funny" <%= quote.category === "funny" ? "selected" : ""%>>Funny</option>
+          <option value="philosophical" <%= quote.category === "philosophical" ? "selected" : ""%>>Philosophical</option>
+          <option value="life-lessons" <%= quote.category === "life-lessons" ? "selected" : ""%>>Life Lessons</option>
+        </select>
+      </div>
+
+      <button id="btn-add" type="submit">Update</button>
+    </form>
+  </div>
+</body>
+
+</html>

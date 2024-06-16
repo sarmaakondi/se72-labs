@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 const server = express();
 const port = process.env.PORT || 3000;
 
@@ -12,6 +13,7 @@ const Quote = require("./models/quotes");
 // middleware
 server.use(express.static("public"));
 server.use(express.urlencoded({ extended: false }));
+server.use(methodOverride("_method"));
 
 // connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI);
@@ -40,6 +42,12 @@ server.get("/quotes/new", (req, res) => {
 server.get("/quotes/:quoteId", async (req, res) => {
   const quote = await Quote.findById(req.params.quoteId);
   res.render("quotes/show.ejs", { quote: quote });
+});
+
+// edit quote by _id | GET
+server.get("/quotes/:quoteId/edit", async (req, res) => {
+  const quote = await Quote.findById(req.params.quoteId);
+  res.render("quotes/edit.ejs", { quote: quote });
 });
 
 // store the quote in MongoDB | POST

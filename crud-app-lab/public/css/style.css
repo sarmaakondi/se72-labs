@@ -259,6 +259,7 @@ ul a {
   opacity: 1;
 }
 
-.fa-solid.fa-trash-can:active {
+.fa-solid.fa-trash-can:active,
+.fa-solid.fa-pen-to-square:active {
   transform: scale(0.9);
 }
