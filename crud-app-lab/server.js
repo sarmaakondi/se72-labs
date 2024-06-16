@@ -50,6 +50,12 @@ server.get("/quotes/:quoteId/edit", async (req, res) => {
   res.render("quotes/edit.ejs", { quote: quote });
 });
 
+// update quote by _id | PUT
+server.put("/quotes/:quoteId", async (req, res) => {
+  await Quote.findByIdAndUpdate(req.params.quoteId, req.body);
+  res.redirect(`/quotes/${req.params.quoteId}`);
+});
+
 // store the quote in MongoDB | POST
 server.post("/quotes", async (req, res) => {
   let quote = req.body.quote;
