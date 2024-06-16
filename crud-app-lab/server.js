@@ -84,6 +84,16 @@ server.post("/quotes", async (req, res) => {
   res.redirect("/quotes");
 });
 
+// delete quote | DELETE
+server.delete("/quotes/:quoteId", async (req, res) => {
+  try {
+    await Quote.findByIdAndDelete(req.params.quoteId);
+    res.status(200).json({ message: "Quote deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting quote" });
+  }
+});
+
 // server listening on specified port
 server.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);

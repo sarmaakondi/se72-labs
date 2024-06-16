@@ -201,7 +201,7 @@ ul a {
   margin-bottom: 32px;
 }
 
-#author {
+#authorName {
   margin-bottom: 16px;
   letter-spacing: 2px;
 }
@@ -229,6 +229,10 @@ ul a {
   list-style: none;
 }
 
+.action-container i {
+  cursor: pointer;
+}
+
 #upvote,
 #downvote,
 #edit,
@@ -253,4 +257,8 @@ ul a {
 #edit:hover .tooltip,
 #delete:hover .tooltip {
   opacity: 1;
+}
+
+.fa-solid.fa-trash-can:active {
+  transform: scale(0.9);
 }

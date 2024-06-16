@@ -11,13 +11,14 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js" defer></script>
     <title>Quote</title>
   </head>
   <body>
     <div class="container">
       <div class="show-quote">
         <div class="quote-nav">
-          <h1 id="author"><%= quote.author %></h1>
+          <h1 id="authorName"><%= quote.author %></h1>
           <a href="/quotes">Browse Quotes</a>
         </div>
         <p id="quote"><%= quote.quote %></p>
@@ -40,7 +41,7 @@
               <small class="tooltip">edit</small>
               <i class="fa-solid fa-pen-to-square"></i>
             </div>
-            <div id="delete">
+            <div id="delete" data-quote-id="<%= quote._id %>">
               <small class="tooltip">delete</small>
               <i class="fa-solid fa-trash-can"></i>
             </div>
