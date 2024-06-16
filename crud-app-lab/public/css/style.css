@@ -245,6 +245,10 @@ ul a {
   min-width: 60px;
 }
 
+#category {
+  font-size: 14px;
+}
+
 .tooltip {
   margin-bottom: 8px;
 }

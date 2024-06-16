@@ -56,6 +56,36 @@ server.put("/quotes/:quoteId", async (req, res) => {
   res.redirect(`/quotes/${req.params.quoteId}`);
 });
 
+// upvote | PUT
+server.put("/quotes/:quoteId/upvote", async (req, res) => {
+  try {
+    const quoteId = req.params.quoteId;
+    const updatedQuote = await Quote.findByIdAndUpdate(
+      quoteId,
+      { $inc: { upvotes: 1 } },
+      { new: true }
+    );
+    res.json(updatedQuote);
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
+// downvote | PUT
+server.put("/quotes/:quoteId/downvote", async (req, res) => {
+  try {
+    const quoteId = req.params.quoteId;
+    const updatedQuote = await Quote.findByIdAndUpdate(
+      quoteId,
+      { $inc: { downvotes: 1 } },
+      { new: true }
+    );
+    res.json(updatedQuote);
+  } catch (error) {
+    res.status(500).send("Server Error");
+  }
+});
+
 // store the quote in MongoDB | POST
 server.post("/quotes", async (req, res) => {
   let quote = req.body.quote;
