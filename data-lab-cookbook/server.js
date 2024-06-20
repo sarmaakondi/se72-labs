@@ -10,6 +10,9 @@ const session = require("express-session");
 const authController = require("./controllers/auth.js");
 const foodsController = require("./controllers/foods.js");
 
+const isLoggedIn = require("./middleware/isLoggedIn.js");
+const passUserToViews = require("./middleware/passUserToViews.js");
+
 const port = process.env.PORT || "3000";
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -43,7 +46,9 @@ app.get("/vip-lounge", (req, res) => {
   }
 });
 
+app.use(passUserToViews);
 app.use("/auth", authController);
+app.use(isLoggedIn);
 app.use("/users/:id/foods", foodsController);
 
 app.listen(port, () => {
