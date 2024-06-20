@@ -9,4 +9,12 @@ router.get("/", async (req, res) => {
   res.render("users/index.ejs", { users: users });
 });
 
+router.get("/:id/show", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  res.render("users/show.ejs", {
+    username: user.username,
+    pantry: user.pantry,
+  });
+});
+
 module.exports = router;
