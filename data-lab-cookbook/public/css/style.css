@@ -40,3 +40,53 @@ a:active {
   transform: scale(1.15);
   font-weight: 600;
 }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 4px;
+}
+
+small {
+  font-size: 12px;
+}
+
+.form-field small {
+  margin-bottom: 8px;
+}
+
+.form-field input {
+  padding: 4px;
+  margin-bottom: 12px;
+  font-family: inherit;
+  min-height: 30px;
+  min-width: 200px;
+}
+
+.form-field input:focus,
+.button:focus {
+  outline: none;
+}
+
+.button {
+  background-color: hsl(211, 100%, 50%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgb(0, 0, 0);
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  margin-top: 16px;
+  min-height: 30px;
+  min-width: 200px;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
