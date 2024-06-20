@@ -30,4 +30,16 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user._id);
+    user.pantry.id(req.params.id).deleteOne();
+    await user.save();
+    res.redirect(`/users/${user._id}/foods`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
