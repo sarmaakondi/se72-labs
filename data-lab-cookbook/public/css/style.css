@@ -7,7 +7,8 @@
 }
 
 body,
-.pantry-container {
+.pantry-container,
+.user-container {
   background-color: hsl(60, 100%, 94%);
   font-family: "Roboto Serif", serif;
   height: 100vh;
@@ -92,7 +93,8 @@ small {
   transform: scale(0.98);
 }
 
-.pantry-container {
+.pantry-container,
+.user-container {
   justify-content: flex-start;
   margin-top: 48px;
 }
@@ -134,4 +136,18 @@ small {
 
 .add {
   color: hsl(9, 70%, 64%);
+}
+
+#users {
+  display: flex;
+  flex-direction: column;
+}
+
+#users li {
+  list-style: none;
+  padding: 6px;
+}
+
+.user {
+  margin-right: 8px;
 }
