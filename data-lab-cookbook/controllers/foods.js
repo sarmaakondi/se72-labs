@@ -42,4 +42,28 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user._id);
+    const item = user.pantry.id(req.params.id);
+    res.render("foods/edit.ejs", { item: item });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.session.user._id);
+    const item = user.pantry.id(req.params.id);
+    item.set(req.body);
+    await user.save();
+    res.redirect(`/users/${user._id}/foods`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
