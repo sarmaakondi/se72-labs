@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Add Item</title>
   </head>
   <body>
-    <h1>Edit Item</h1>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1 id="title">Edit Item</h1>
 
     <form
       action="/users/<%= user._id %>/foods/<%= item._id %>?_method=PUT"
       method="post"
     >
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        required
-        value="<%= item.name %>"
-      />
+      <div class="form-field">
+        <label for="name">Name:</label>
+        <small>required</small>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          value="<%= item.name %>"
+        />
+      </div>
 
-      <button type="submit">Update Item</button>
+      <button class="button" type="submit">Update Item</button>
     </form>
   </body>
 </html>
