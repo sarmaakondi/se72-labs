@@ -3,7 +3,7 @@ const router = express.Router();
 
 const User = require("../models/user");
 
-// TODO - Routes
+// Routes
 router.get("/", async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
