@@ -6,7 +6,8 @@
   padding: 0;
 }
 
-body {
+body,
+.pantry-container {
   background-color: hsl(60, 100%, 94%);
   font-family: "Roboto Serif", serif;
   height: 100vh;
@@ -89,4 +90,48 @@ small {
 
 .button:active {
   transform: scale(0.98);
+}
+
+.pantry-container {
+  justify-content: flex-start;
+  margin-top: 48px;
+}
+
+.pantry-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 300px;
+}
+
+.pantry-item li {
+  list-style: none;
+  padding: 4px;
+  margin: 4px;
+  min-width: 150px;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.delete-button {
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  transform: scale(1.2);
+}
+
+.add {
+  color: hsl(9, 70%, 64%);
 }

@@ -3,28 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Pantry</title>
   </head>
   <body>
-    <%- include('../partials/_navbar.ejs') %>
-    <h1>Welcome to your Pantry</h1>
-    <a href="/users/<%= user._id %>/foods/new">Add Item</a>
-    <!-- display pantry items -->
-    <% if (pantry.length > 0) { %>
-    <ul>
-      <% pantry.forEach(item => { %>
-      <li><%= item.name %></li>
-      <a href="/users/<%= user._id %>/foods/<%= item._id %>/edit">Edit</a>
-      <form
-        action="/users/<%= user._id %>/foods/<%= item._id %>?_method=DELETE"
-        method="post"
-      >
-        <button type="submit">Delete</button>
-      </form>
-      <% }) %>
-    </ul>
-    <% } else { %>
-    <p>There are no items in this pantry.</p>
-    <% } %>
+    <div class="pantry-container">
+      <%- include('../partials/_navbar.ejs') %>
+      <div id="nav">
+        <h1 id="title">Welcome to your Pantry</h1>
+        <a class="add" href="/users/<%= user._id %>/foods/new">Add Item</a>
+      </div>
+      <!-- display pantry items -->
+      <% if (pantry.length > 0) { %>
+      <ul>
+        <% pantry.forEach(item => { %>
+        <div class="pantry-item">
+          <li>
+            <i class="fa-solid fa-cart-shopping icon"></i><%= item.name %>
+          </li>
+          <a href="/users/<%= user._id %>/foods/<%= item._id %>/edit"
+            ><i class="fa-solid fa-pen-to-square"></i
+          ></a>
+          <form
+            action="/users/<%= user._id %>/foods/<%= item._id %>?_method=DELETE"
+            method="post"
+          >
+            <button class="delete-button" type="submit">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </form>
+        </div>
+        <% }) %>
+      </ul>
+      <% } else { %>
+      <p>There are no items in this pantry.</p>
+      <% } %>
+    </div>
   </body>
 </html>
