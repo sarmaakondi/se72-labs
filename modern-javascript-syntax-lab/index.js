@@ -116,7 +116,5 @@ Now check for `cat.age` on `adventurer`. See how it errors out? Use optional cha
 const adventurer = {
   name: "Alice",
 };
-
 let cat = adventurer.cat?.age;
-
 console.log(cat);
