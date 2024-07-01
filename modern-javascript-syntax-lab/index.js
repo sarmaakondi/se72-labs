@@ -55,3 +55,7 @@ const userProfile = {};
 const propertyName = "username";
 userProfile[propertyName] = "Anonymouse";
 console.log(userProfile);
+
+/* 
+Exercise 7: Import and Export - DONE
+*/
