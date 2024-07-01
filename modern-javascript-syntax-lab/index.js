@@ -72,3 +72,16 @@ const defaultParamsFunction = (noun = "cat", adjective = "white") => {
 };
 console.log(defaultParamsFunction());
 console.log(defaultParamsFunction("doll", "so cute"));
+
+/* 
+Exercise 9: Ternary operator
+Convert the following `if...else` statement in to a ternary:
+let pizza = 'tasty';
+if (pizza === 'tasty') {
+  console.log('yum');
+} else {
+  console.log('yuck');
+}
+*/
+const pizza = "tasty";
+console.log(pizza === "tasty" ? "yum" : "yuck");
