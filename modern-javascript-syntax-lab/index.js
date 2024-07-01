@@ -59,3 +59,16 @@ console.log(userProfile);
 /* 
 Exercise 7: Import and Export - DONE
 */
+
+/* 
+Exercise 8: Default parameters
+Create a function that takes two parameters, `noun` and `adjective`, both with the following respective default values:
+1. `cat`
+2. `white`
+The function should log a sentence 'The cat is white.' by default. The function should substitute the appropriate parameters when supplied arguments.
+*/
+const defaultParamsFunction = (noun = "cat", adjective = "white") => {
+  return `The ${noun} is ${adjective}`;
+};
+console.log(defaultParamsFunction());
+console.log(defaultParamsFunction("doll", "so cute"));
