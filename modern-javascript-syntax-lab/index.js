@@ -34,3 +34,13 @@ Duplicate the following array using the spread operator and assign it to `contro
 */
 const controversialPizzaToppings = [...pizzaToppings];
 console.log(controversialPizzaToppings);
+
+/* 
+Exercise 5: Applying the spread operator on objects
+Duplicate the following object and spread its values into a new variable `myCar`.
+Change the `model` property of `myCar` to 'q7'. Log both objects.
+*/
+const myCar = { ...car };
+myCar.model = "q7";
+console.log(car);
+console.log(myCar);
