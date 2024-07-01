@@ -95,7 +95,16 @@ Construct a single line of code that assigns a default value using the logical O
 const localLangConfig = null;  // Change to 'es', 'fr', etc., or keep it null
 a. Create a variable called LANG
 b. Assign LANG the value of localLangConfig or 'en' as a default
+
+2. SET WEBSITE THEME
+const userSavedTheme = null; // Change to 'dark', 'contrast', etc., or keep it null
+a. Create a variable called USER_THEME
+b. Assign USER_THEME the value of userSavedTheme or 'light' as a default
 */
 const localLangConfig = null;
 const LANG = localLangConfig || "en";
 console.log("Language setting:", LANG);
+
+const userSavedTheme = "dark";
+const USER_THEME = userSavedTheme || "light";
+console.log("User theme setting:", USER_THEME);
