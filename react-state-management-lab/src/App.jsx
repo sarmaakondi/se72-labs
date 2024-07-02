@@ -77,7 +77,25 @@ function App() {
     },
   ]);
 
-  return <h1>Hello from React!</h1>;
+  return (
+    <ul>
+      {zombieFighters.map((zombieFighter) => (
+        <>
+          <li>
+            <img
+              src={zombieFighter.img}
+              alt="zombie fighter placholder image"
+            />
+          </li>
+          <li>{zombieFighter.name}</li>
+          <li>Price: {zombieFighter.price}</li>
+          <li>Strength: {zombieFighter.strength}</li>
+          <li>Agility: {zombieFighter.agility}</li>
+          <button>Add</button>
+        </>
+      ))}
+    </ul>
+  );
 }
 
 export default App;
