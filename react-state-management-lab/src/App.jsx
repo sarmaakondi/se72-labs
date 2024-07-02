@@ -91,6 +91,7 @@ function App() {
 
   return (
     <>
+      <h3>Money: {money}</h3>
       {zombieFighters.map((zombieFighter, index) => (
         <ul key={index}>
           <li>
