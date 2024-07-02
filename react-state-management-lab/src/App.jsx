@@ -16,6 +16,7 @@ import LeaderImage from "./assets/images/Leader.jpeg";
 function App() {
   const [money, setMoney] = useState(100);
   const [totalStrength, setTotalStrength] = useState(0);
+  const [totalAgility, setTotalAgility] = useState(0);
   const [team, setTeam] = useState([]);
   const [zombieFighters, setZombieFighters] = useState([
     {
@@ -90,6 +91,13 @@ function App() {
     },
   ]);
 
+  const calculateTeamAgility = (team) => {
+    return team.reduce(
+      (acc, team) => (team.agility ? acc + team.agility : 0),
+      0
+    );
+  };
+
   const calculateTeamStrength = (team) => {
     return team.reduce(
       (acc, team) => (team.strength ? acc + team.strength : 0),
@@ -103,6 +111,7 @@ function App() {
       setTeam(newTeam);
       setMoney(money - fighter.price);
       setTotalStrength(calculateTeamStrength(newTeam));
+      setTotalAgility(calculateTeamAgility(newTeam));
     } else {
       console.log("Not enough money");
     }
@@ -113,8 +122,11 @@ function App() {
       {/* Display the balance money */}
       <h3>Money: {money}</h3>
 
-      {/* Display the current team strength */}
+      {/* Display the team total strength */}
       <h3>Team Strength: {totalStrength}</h3>
+
+      {/* Display the team total agility */}
+      <h3>Team Agility: {totalAgility}</h3>
 
       {/* Display current team or instruction as required */}
       <h2>Your Team</h2>
