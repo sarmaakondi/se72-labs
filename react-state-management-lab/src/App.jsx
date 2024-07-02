@@ -112,6 +112,10 @@ function App() {
       setMoney(money - fighter.price);
       setTotalStrength(calculateTeamStrength(newTeam));
       setTotalAgility(calculateTeamAgility(newTeam));
+      const remainingFighters = zombieFighters.filter(
+        (zombieFighter) => zombieFighter !== fighter
+      );
+      setZombieFighters(remainingFighters);
     } else {
       console.log("Not enough money");
     }
@@ -141,6 +145,7 @@ function App() {
             <li>Price: {fighter.price}</li>
             <li>Strength: {fighter.strength}</li>
             <li>Agility: {fighter.agility}</li>
+            <button>Remove</button>
           </ul>
         ))}
 
