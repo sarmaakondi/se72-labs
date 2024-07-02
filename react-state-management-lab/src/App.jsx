@@ -14,8 +14,9 @@ import InfiltratorImage from "./assets/images/Infiltrator.jpeg";
 import LeaderImage from "./assets/images/Leader.jpeg";
 
 function App() {
-  const [team, setTeam] = useState([]);
   const [money, setMoney] = useState(100);
+  const [totalStrength, setTotalStrength] = useState(0);
+  const [team, setTeam] = useState([]);
   const [zombieFighters, setZombieFighters] = useState([
     {
       name: "Survivor",
@@ -89,10 +90,19 @@ function App() {
     },
   ]);
 
+  const calculateTeamStrength = (team) => {
+    return team.reduce(
+      (acc, team) => (team.strength ? acc + team.strength : 0),
+      0
+    );
+  };
+
   const handleAddFighter = (fighter) => {
     if (money >= fighter.price) {
-      setTeam([...team, fighter]);
+      const newTeam = [...team, fighter];
+      setTeam(newTeam);
       setMoney(money - fighter.price);
+      setTotalStrength(calculateTeamStrength(newTeam));
     } else {
       console.log("Not enough money");
     }
@@ -100,7 +110,11 @@ function App() {
 
   return (
     <>
+      {/* Display the balance money */}
       <h3>Money: {money}</h3>
+
+      {/* Display the current team strength */}
+      <h3>Team Strength: {totalStrength}</h3>
 
       {/* Display current team or instruction as required */}
       <h2>Your Team</h2>
