@@ -1,5 +1,17 @@
 import { useState } from "react";
+
 import "./App.css";
+
+import SurvivorImage from "./assets/images/Survivor.jpeg";
+import ScavengerImage from "./assets/images/Scavenger.jpeg";
+import ShadowImage from "./assets/images/Shadow.jpeg";
+import TrackerImage from "./assets/images/Tracker.jpeg";
+import SharpshooterImage from "./assets/images/Sharpshooter.jpeg";
+import MedicImage from "./assets/images/Medic.jpeg";
+import EngineerImage from "./assets/images/Engineer.jpeg";
+import BrawlerImage from "./assets/images/Brawler.jpeg";
+import InfiltratorImage from "./assets/images/Infiltrator.jpeg";
+import LeaderImage from "./assets/images/Leader.jpeg";
 
 function App() {
   const [team, setTeam] = useState([]);
@@ -10,77 +22,77 @@ function App() {
       price: 12,
       strength: 6,
       agility: 4,
-      img: "https://via.placeholder.com/150/92c952",
+      img: SurvivorImage,
     },
     {
       name: "Scavenger",
       price: 10,
       strength: 5,
       agility: 5,
-      img: "https://via.placeholder.com/150/771796",
+      img: ScavengerImage,
     },
     {
       name: "Shadow",
       price: 18,
       strength: 7,
       agility: 8,
-      img: "https://via.placeholder.com/150/24f355",
+      img: ShadowImage,
     },
     {
       name: "Tracker",
       price: 14,
       strength: 7,
       agility: 6,
-      img: "https://via.placeholder.com/150/d32776",
+      img: TrackerImage,
     },
     {
       name: "Sharpshooter",
       price: 20,
       strength: 6,
       agility: 8,
-      img: "https://via.placeholder.com/150/1ee8a4",
+      img: SharpshooterImage,
     },
     {
       name: "Medic",
       price: 15,
       strength: 5,
       agility: 7,
-      img: "https://via.placeholder.com/150/66b7d2",
+      img: MedicImage,
     },
     {
       name: "Engineer",
       price: 16,
       strength: 6,
       agility: 5,
-      img: "https://via.placeholder.com/150/56acb2",
+      img: EngineerImage,
     },
     {
       name: "Brawler",
       price: 11,
       strength: 8,
       agility: 3,
-      img: "https://via.placeholder.com/150/8985dc",
+      img: BrawlerImage,
     },
     {
       name: "Infiltrator",
       price: 17,
       strength: 5,
       agility: 9,
-      img: "https://via.placeholder.com/150/392537",
+      img: InfiltratorImage,
     },
     {
       name: "Leader",
       price: 22,
       strength: 7,
       agility: 6,
-      img: "https://via.placeholder.com/150/602b9e",
+      img: LeaderImage,
     },
   ]);
 
   return (
-    <ul>
-      {zombieFighters.map((zombieFighter) => (
-        <>
+    <>
+      {zombieFighters.map((zombieFighter, index) => (
+        <ul key={index}>
           <li>
             <img
               src={zombieFighter.img}
@@ -92,9 +104,9 @@ function App() {
           <li>Strength: {zombieFighter.strength}</li>
           <li>Agility: {zombieFighter.agility}</li>
           <button>Add</button>
-        </>
+        </ul>
       ))}
-    </ul>
+    </>
   );
 }
 
