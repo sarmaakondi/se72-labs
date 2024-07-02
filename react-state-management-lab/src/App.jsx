@@ -89,6 +89,15 @@ function App() {
     },
   ]);
 
+  const handleAddFighter = (fighter) => {
+    if (money >= fighter.price) {
+      setTeam({ ...fighter });
+      setMoney(money - fighter.price);
+    } else {
+      console.log("Not enough money");
+    }
+  };
+
   return (
     <>
       <h3>Money: {money}</h3>
@@ -104,7 +113,9 @@ function App() {
           <li>Price: {zombieFighter.price}</li>
           <li>Strength: {zombieFighter.strength}</li>
           <li>Agility: {zombieFighter.agility}</li>
-          <button>Add</button>
+          <button onClick={() => handleAddFighter({ ...zombieFighter })}>
+            Add
+          </button>
         </ul>
       ))}
     </>
