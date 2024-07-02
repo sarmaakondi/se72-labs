@@ -11,11 +11,11 @@ const WeatherForecast = (props) => {
     <div className="weather">
       <h2>{fixCase(props.day)}</h2>
       <WeatherIcon img={props.img} imgAlt={props.imgAlt} />
-      <p>
+      <p className="conditions">
         <span>Conditions: </span>
         {fixCase(props.conditions)}
       </p>
-      <p>
+      <p className="time">
         <span>Time: </span>
         {fixCase(props.time)}
       </p>

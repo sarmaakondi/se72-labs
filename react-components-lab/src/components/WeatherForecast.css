@@ -26,6 +26,12 @@ section .weather {
   padding: 24px 0;
   align-items: center;
   min-width: 200px;
+  transition: all 0.3s;
+}
+
+section .weather:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .weather span {
@@ -38,4 +44,34 @@ section .weather {
 
 .weather h2 {
   margin-bottom: 8px;
+}
+
+@media (max-width: 1164px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  section .weather {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 400px;
+    min-height: 100px;
+  }
+
+  .conditions,
+  .time {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .weather p:last-child {
+    margin-top: 0;
+  }
 }
