@@ -91,6 +91,7 @@ function App() {
     },
   ]);
 
+  // Calculate and return the team's total agility
   const calculateTeamAgility = (team) => {
     return team.reduce(
       (acc, team) => (team.agility ? acc + team.agility : 0),
@@ -98,6 +99,7 @@ function App() {
     );
   };
 
+  // Calculate and return the team's total strength
   const calculateTeamStrength = (team) => {
     return team.reduce(
       (acc, team) => (team.strength ? acc + team.strength : 0),
@@ -105,13 +107,19 @@ function App() {
     );
   };
 
+  // Handle the change in state while adding a new fighter
   const handleAddFighter = (fighter) => {
     if (money >= fighter.price) {
+      // Update the state of the team with the newly created array
       const newTeam = [...team, fighter];
       setTeam(newTeam);
+      // Subtract the fighter's price from the money and udpate the state
       setMoney(money - fighter.price);
+      // Calculate the team's total strength and update the state
       setTotalStrength(calculateTeamStrength(newTeam));
+      // Calculate the team's total agility and update the state
       setTotalAgility(calculateTeamAgility(newTeam));
+      // Remove the selected fighter from the source data and update the state
       const remainingFighters = zombieFighters.filter(
         (zombieFighter) => zombieFighter !== fighter
       );
@@ -119,6 +127,22 @@ function App() {
     } else {
       console.log("Not enough money");
     }
+  };
+
+  // Handle the change in state while removing an existing fighter
+  const handleRemoveFighter = (fighter) => {
+    // Remove the selected fighter from the current team and update the state
+    const newTeam = team.filter((currentFighter) => currentFighter !== fighter);
+    setTeam(newTeam);
+    // Calculate the team's total strength and update the state
+    setTotalStrength(calculateTeamStrength(newTeam));
+    // Calculate the team's total agility and update the state
+    setTotalAgility(calculateTeamAgility(newTeam));
+    // Refund the removed fighter's price and update the state
+    setMoney(money + fighter.price);
+    // Add the figher back to the source data and update the state
+    const updatedZombieFighters = [...zombieFighters, fighter];
+    setZombieFighters(updatedZombieFighters);
   };
 
   return (
@@ -145,7 +169,7 @@ function App() {
             <li>Price: {fighter.price}</li>
             <li>Strength: {fighter.strength}</li>
             <li>Agility: {fighter.agility}</li>
-            <button>Remove</button>
+            <button onClick={() => handleRemoveFighter(fighter)}>Remove</button>
           </ul>
         ))}
 
