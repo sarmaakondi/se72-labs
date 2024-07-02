@@ -1,3 +1,5 @@
+import "./App.css";
+
 import WeatherForecast from "./WeatherForecast";
 
 function App() {
@@ -43,7 +45,7 @@ function App() {
     <>
       <h1>Local Weather</h1>
       <section>
-        <WeatherForecast />
+        <WeatherForecast {...weatherForecasts[0]} />
       </section>
     </>
   );
