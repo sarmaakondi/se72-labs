@@ -11,6 +11,11 @@ const BookShelf = () => {
       author: "C.S. Lewis",
     },
   ]);
+  const [newBook, setNewBook] = useState({ title: "", author: "" });
+
+  const handleInputChange = (event) => {
+    setNewBook({ ...newBook, [event.target.name]: event.target.value });
+  };
 
   return (
     <>
@@ -18,9 +23,21 @@ const BookShelf = () => {
         <h3>Add a book</h3>
         <form>
           <label htmlFor="title">Title:</label>
-          <input type="text" name="title" id="title" />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={newBook.title}
+            onChange={handleInputChange}
+          />
           <label htmlFor="author">Author:</label>
-          <input type="text" name="author" id="author" />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            value={newBook.author}
+            onChange={handleInputChange}
+          />
           <button type="submit">Add</button>
         </form>
       </div>
