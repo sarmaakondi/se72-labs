@@ -5,7 +5,6 @@ import BookShelf from "./components/BookShelf/BookShelf";
 function App() {
   return (
     <>
-      <h1 id="header">My Bookshelf</h1>
       <BookShelf />
     </>
   );
