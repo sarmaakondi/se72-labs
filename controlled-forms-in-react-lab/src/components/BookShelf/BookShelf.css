@@ -25,9 +25,71 @@ h3 {
 }
 
 #header {
+  font-size: 48px;
   position: sticky;
   top: 0;
   text-align: center;
   padding: 18px;
-  margin: 18px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.form-container h3 {
+  font-size: 32px;
+}
+
+.form-field {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field small {
+  font-size: 14px;
+  margin-bottom: 12px;
+  margin-top: 4px;
+}
+
+.form-field input {
+  min-width: 300px;
+  min-height: 40px;
+  font-size: 16px;
+  font-family: inherit;
+  margin-bottom: 14px;
+  padding: 8px;
+  outline: none;
+}
+
+.form-container button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 0;
+  min-width: 300px;
+  min-height: 30px;
+  margin-top: 24px;
+  background-color: hsl(270, 50%, 40%);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: hsl(270, 50%, 50%);
+}
+
+.form-container button:active {
+  transform: scale(0.98);
 }
