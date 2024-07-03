@@ -147,49 +147,79 @@ function App() {
 
   return (
     <>
-      {/* Display the balance money */}
-      <h3>Money: {money}</h3>
+      {/* Display header */}
+      <h1 id="title">Zombie Fighters</h1>
 
-      {/* Display the team total strength */}
-      <h3>Team Strength: {totalStrength}</h3>
-
-      {/* Display the team total agility */}
-      <h3>Team Agility: {totalAgility}</h3>
+      <div className="team-stats">
+        {/* Display the balance money */}
+        <h2>Money: {money}</h2>
+        {/* Display the team total strength */}
+        <h2>Team Strength: {totalStrength}</h2>
+        {/* Display the team total agility */}
+        <h2>Team Agility: {totalAgility}</h2>
+      </div>
 
       {/* Display current team or instruction as required */}
-      <h2>Your Team</h2>
-      {team.length === 0 && <p>Pick some team members</p>}
-      {team.length > 0 &&
-        team.map((fighter, index) => (
-          <ul key={index}>
-            <li>
-              <img src={fighter.img} alt="zombie fighter placholder image" />
-            </li>
-            <li>{fighter.name}</li>
-            <li>Price: {fighter.price}</li>
-            <li>Strength: {fighter.strength}</li>
-            <li>Agility: {fighter.agility}</li>
-            <button onClick={() => handleRemoveFighter(fighter)}>Remove</button>
-          </ul>
-        ))}
-
-      {/* Display the available fighters */}
-      <h2>Available Fighters</h2>
-      {zombieFighters.map((zombieFighter, index) => (
-        <ul key={index}>
-          <li>
-            <img
-              src={zombieFighter.img}
-              alt="zombie fighter placholder image"
-            />
-          </li>
-          <li>{zombieFighter.name}</li>
-          <li>Price: {zombieFighter.price}</li>
-          <li>Strength: {zombieFighter.strength}</li>
-          <li>Agility: {zombieFighter.agility}</li>
-          <button onClick={() => handleAddFighter(zombieFighter)}>Add</button>
-        </ul>
-      ))}
+      <div className="parent-container">
+        <div className="current-fighters">
+          <h3>Your Team</h3>
+          {team.length === 0 && <p>Pick some team members</p>}
+          {team.length > 0 &&
+            team.map((fighter, index) => (
+              <ul key={index}>
+                <div className="fighter-nav">
+                  <h4>{fighter.name}</h4>
+                  <i
+                    onClick={() => handleRemoveFighter(fighter)}
+                    className="fa-solid fa-square-xmark"
+                  ></i>
+                </div>
+                <div className="fighter-container">
+                  <li>
+                    <img
+                      src={fighter.img}
+                      alt="zombie fighter placholder image"
+                    />
+                  </li>
+                  <div className="fighter-details">
+                    <li>Price: {fighter.price}</li>
+                    <li>Strength: {fighter.strength}</li>
+                    <li>Agility: {fighter.agility}</li>
+                  </div>
+                </div>
+              </ul>
+            ))}
+        </div>
+        {/* Display the available fighters */}
+        <div className="available-fighters">
+          <h3>Available Fighters</h3>
+          {zombieFighters.map((zombieFighter, index) => (
+            <ul key={index}>
+              <div className="fighter-nav">
+                <h4>{zombieFighter.name}</h4>
+                <i
+                  onClick={() => handleAddFighter(zombieFighter)}
+                  className="fa-solid fa-square-plus"
+                ></i>
+              </div>
+              <div className="fighter-container">
+                <li>
+                  <img
+                    src={zombieFighter.img}
+                    alt="zombie fighter placholder image"
+                  />
+                </li>
+                <div className="fighter-details">
+                  {/* <li>{zombieFighter.name}</li> */}
+                  <li>Price: {zombieFighter.price}</li>
+                  <li>Strength: {zombieFighter.strength}</li>
+                  <li>Agility: {zombieFighter.agility}</li>
+                </div>
+              </div>
+            </ul>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
