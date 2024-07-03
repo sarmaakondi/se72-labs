@@ -25,6 +25,7 @@ const BookShelf = () => {
 
   return (
     <>
+      {/* Form to add books */}
       <div>
         <h3>Add a book</h3>
         <form onSubmit={handleSubmit}>
@@ -47,7 +48,17 @@ const BookShelf = () => {
           <button type="submit">Add</button>
         </form>
       </div>
-      <div>{/* Book cards displayed here */}</div>
+
+      {/* Display the books here */}
+      <div>
+        <ul>
+          {books.map((book, index) => (
+            <li key={index}>
+              {book.title} <span>by {book.author}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
