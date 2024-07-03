@@ -108,7 +108,8 @@ h3 {
 
 .book-card {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   padding: 16px 32px;
 }
@@ -121,8 +122,8 @@ h3 {
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  min-width: 200px;
-  min-height: 250px;
+  width: 200px;
+  height: 250px;
 }
 
 .book-title {
@@ -132,4 +133,42 @@ h3 {
 .book-author {
   display: block;
   font-size: 16px;
+}
+
+@media (max-width: 1350px) {
+  .book-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 16px 32px;
+  }
+}
+
+@media (max-width: 1060px) {
+  .book-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 16px 32px;
+  }
+
+  #header {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 16px 32px;
+  }
+
+  #header {
+    font-size: 32px;
+  }
+
+  .form-container h3 {
+    font-size: 24px;
+  }
 }
