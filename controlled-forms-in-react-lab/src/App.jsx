@@ -1,11 +1,11 @@
-import "./App.css";
+import "./components/BookShelf/BookShelf.css";
 
 import BookShelf from "./components/BookShelf/BookShelf";
 
 function App() {
   return (
     <>
-      <h1>My Bookshelf</h1>
+      <h1 id="header">My Bookshelf</h1>
       <BookShelf />
     </>
   );

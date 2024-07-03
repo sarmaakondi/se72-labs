@@ -1,3 +1,5 @@
+import "./BookShelf.css";
+
 import { useState } from "react";
 
 const BookShelf = () => {
@@ -26,38 +28,39 @@ const BookShelf = () => {
   return (
     <>
       {/* Form to add books */}
-      <div>
-        <h3>Add a book</h3>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={newBook.title}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="author">Author:</label>
-          <input
-            type="text"
-            name="author"
-            id="author"
-            value={newBook.author}
-            onChange={handleInputChange}
-          />
-          <button type="submit">Add</button>
-        </form>
-      </div>
-
-      {/* Display the books here */}
-      <div>
-        <ul>
-          {books.map((book, index) => (
-            <li key={index}>
-              {book.title} <span>by {book.author}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="parent-container">
+        <div className="form-container">
+          <h3>Add a book</h3>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value={newBook.title}
+              onChange={handleInputChange}
+            />
+            <label htmlFor="author">Author:</label>
+            <input
+              type="text"
+              name="author"
+              id="author"
+              value={newBook.author}
+              onChange={handleInputChange}
+            />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+        {/* Display the books here */}
+        <div className="books-container">
+          <ul>
+            {books.map((book, index) => (
+              <li key={index}>
+                {book.title} <span>by {book.author}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
