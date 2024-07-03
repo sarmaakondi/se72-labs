@@ -16,7 +16,13 @@ const BookShelf = () => {
     <>
       <div>
         <h3>Add a book</h3>
-        {/* Form goes here */}
+        <form>
+          <label htmlFor="title">Title:</label>
+          <input type="text" name="title" id="title" />
+          <label htmlFor="author">Author:</label>
+          <input type="text" name="author" id="author" />
+          <button type="submit">Add</button>
+        </form>
       </div>
       <div>{/* Book cards displayed here */}</div>
     </>
