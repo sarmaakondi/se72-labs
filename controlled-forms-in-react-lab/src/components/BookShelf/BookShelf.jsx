@@ -17,11 +17,17 @@ const BookShelf = () => {
     setNewBook({ ...newBook, [event.target.name]: event.target.value });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setBooks([...books, newBook]);
+    setNewBook({ title: "", author: "" });
+  };
+
   return (
     <>
       <div>
         <h3>Add a book</h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
