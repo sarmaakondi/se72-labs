@@ -23,6 +23,12 @@ body,
   margin: 0;
   height: 100%;
   overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(240, 32%, 94%);
+}
+
+h1 {
+  font-weight: 500;
 }
 
 main {
@@ -59,16 +65,23 @@ ul {
 }
 
 li {
-  padding: 8px;
-  margin-bottom: 4px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
   border-radius: 8px;
-  font-weight: bold;
-  text-shadow: 0px 0px 2px #000000;
-  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  color: #131313;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.3s;
+
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.2);
+}
+
+li:hover {
+  transform: scale(1.02);
 }
 
 button {
