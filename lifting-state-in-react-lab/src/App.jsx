@@ -24,12 +24,19 @@ export const availableIngredients = [
 const App = () => {
   const [stack, setStack] = useState([]);
 
+  const addToBurger = (ingredientToAdd) => {
+    setStack([ingredientToAdd, ...stack]);
+  };
+
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList ingredients={availableIngredients} />
-        <BurgerStack />
+        <IngredientList
+          ingredients={availableIngredients}
+          addToBurger={addToBurger}
+        />
+        <BurgerStack stack={stack} />
       </section>
     </main>
   );

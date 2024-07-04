@@ -77,3 +77,14 @@ button {
   background-color: #1a1a1a;
   border: 1px solid transparent;
 }
+
+.fa-circle-plus,
+.fa-circle-minus {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.fa-circle-plus:active,
+.fa-circle-minus:active {
+  transform: scale(0.9);
+}
