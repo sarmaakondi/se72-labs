@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import MailBoxForm from "./MailboxForm";
 import MailBoxList from "./Mailboxlist";
 import MailBoxDetails from "./MailboxDetails";
+import LetterForm from "./LetterForm";
 
 const initialData = [
     {
@@ -26,10 +27,15 @@ const initialData = [
 
 function App() {
     const [mailboxes, setMailboxes] = useState([]);
+    const [letters, setLetters] = useState([]);
 
     const addBox = (newMailboxData) => {
         newMailboxData._id = mailboxes.length + 1;
         setMailboxes([...mailboxes, newMailboxData]);
+    };
+
+    const addLetter = (newLetterData) => {
+        setLetters([...letters, newLetterData]);
     };
 
     useEffect(() => {
@@ -58,7 +64,21 @@ function App() {
                 />
                 <Route
                     path="/mailboxes/:id"
-                    element={<MailBoxDetails mailboxes={mailboxes} />}
+                    element={
+                        <MailBoxDetails
+                            mailboxes={mailboxes}
+                            letters={letters}
+                        />
+                    }
+                />
+                <Route
+                    path="/new-letter"
+                    element={
+                        <LetterForm
+                            mailboxes={mailboxes}
+                            addLetter={addLetter}
+                        />
+                    }
                 />
                 <Route path="*" element={<h2>Page Not Found!</h2>} />
             </Routes>

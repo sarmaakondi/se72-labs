@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 
-const MailBoxDetails = ({ mailboxes }) => {
+const MailBoxDetails = ({ mailboxes, letters }) => {
     const { id } = useParams();
+
     const selectedMailbox = mailboxes.find(
         (mailbox) => mailbox._id === Number(id)
+    );
+
+    const letterData = letters.find(
+        (letter) => Number(letter.mailboxId) === selectedMailbox._id
     );
 
     return (
@@ -17,6 +22,14 @@ const MailBoxDetails = ({ mailboxes }) => {
                 </>
             ) : (
                 <h2>Mailbox Not Found!</h2>
+            )}
+
+            {letterData && (
+                <>
+                    <h3>Letters</h3>
+                    <p>Dear {letterData.recipient},</p>
+                    <p>{letterData.message}</p>
+                </>
             )}
         </>
     );

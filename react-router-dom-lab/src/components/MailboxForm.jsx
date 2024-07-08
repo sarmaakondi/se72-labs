@@ -19,7 +19,6 @@ const MailBoxForm = (props) => {
 
     const handleChange = ({ target }) => {
         setFormData({ ...formData, [target.name]: target.value });
-        console.log(formData);
     };
 
     const handleSubmit = (event) => {
