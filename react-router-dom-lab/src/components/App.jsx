@@ -48,7 +48,10 @@ function App() {
                     element={<MailBoxList mailboxes={mailboxes} />}
                 />
                 <Route path="/new-mailbox" element={<MailBoxForm />} />
-                <Route path="/mailboxes/:id" element={<MailBoxDetails />} />
+                <Route
+                    path="/mailboxes/:id"
+                    element={<MailBoxDetails mailboxes={mailboxes} />}
+                />
             </Routes>
         </>
     );
