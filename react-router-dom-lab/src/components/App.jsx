@@ -1,11 +1,36 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import NavBar from "./NavBar";
 import MailBoxForm from "./MailboxForm";
 import MailBoxList from "./Mailboxlist";
 import MailBoxDetails from "./MailboxDetails";
 
+const initialData = [
+    {
+        _id: 1,
+        boxSize: "Small",
+        boxholder: "Alex",
+    },
+    {
+        _id: 2,
+        boxSize: "Medium",
+        boxholder: "John",
+    },
+    {
+        _id: 3,
+        boxSize: "Large",
+        boxholder: "Doe",
+    },
+];
+
 function App() {
+    const [mailboxes, setMailboxes] = useState([]);
+
+    useEffect(() => {
+        setMailboxes(initialData);
+    }, []);
+
     return (
         <>
             <NavBar />
@@ -18,7 +43,10 @@ function App() {
                         </main>
                     }
                 />
-                <Route path="/mailboxes" element={<MailBoxList />} />
+                <Route
+                    path="/mailboxes"
+                    element={<MailBoxList mailboxes={mailboxes} />}
+                />
                 <Route path="/new-mailbox" element={<MailBoxForm />} />
                 <Route path="/mailboxes/:id" element={<MailBoxDetails />} />
             </Routes>
