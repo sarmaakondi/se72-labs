@@ -27,6 +27,11 @@ const initialData = [
 function App() {
     const [mailboxes, setMailboxes] = useState([]);
 
+    const addBox = (newMailboxData) => {
+        newMailboxData._id = mailboxes.length + 1;
+        setMailboxes([...mailboxes, newMailboxData]);
+    };
+
     useEffect(() => {
         setMailboxes(initialData);
     }, []);
@@ -47,11 +52,15 @@ function App() {
                     path="/mailboxes"
                     element={<MailBoxList mailboxes={mailboxes} />}
                 />
-                <Route path="/new-mailbox" element={<MailBoxForm />} />
+                <Route
+                    path="/new-mailbox"
+                    element={<MailBoxForm addBox={addBox} />}
+                />
                 <Route
                     path="/mailboxes/:id"
                     element={<MailBoxDetails mailboxes={mailboxes} />}
                 />
+                <Route path="*" element={<h2>Page Not Found!</h2>} />
             </Routes>
         </>
     );

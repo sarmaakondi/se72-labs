@@ -8,10 +8,16 @@ const MailBoxDetails = ({ mailboxes }) => {
 
     return (
         <>
-            <h1>Mailbox {selectedMailbox._id}</h1>
-            <h3>Details</h3>
-            <p>Boxholder: {selectedMailbox.boxholder}</p>
-            <p>Box Size: {selectedMailbox.boxSize}</p>
+            {selectedMailbox ? (
+                <>
+                    <h1>Mailbox {selectedMailbox._id}</h1>
+                    <h3>Details</h3>
+                    <p>Boxholder: {selectedMailbox.boxholder}</p>
+                    <p>Box Size: {selectedMailbox.boxSize}</p>
+                </>
+            ) : (
+                <h2>Mailbox Not Found!</h2>
+            )}
         </>
     );
 };
