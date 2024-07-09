@@ -24,7 +24,7 @@ h1,
 h2,
 h3 {
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 main {
@@ -34,4 +34,22 @@ main {
 
 .name {
     font-weight: bold;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form * {
+    margin-right: 16px;
+}
+
+input {
+    font-family: inherit;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(160, 160, 160, 0.6);
 }

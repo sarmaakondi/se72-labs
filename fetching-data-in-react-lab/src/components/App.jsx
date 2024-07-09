@@ -8,6 +8,15 @@ import "./App.css";
 
 function App() {
     const [starships, setStarships] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const searchedData = starships.filter((starship) =>
+        starship.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,8 +34,11 @@ function App() {
     return (
         <main>
             <h1>Star Wars API</h1>
-            <StarshipSearch />
-            <StarshipList starships={starships} />
+            <StarshipSearch
+                searchTerm={searchTerm}
+                handleSearch={handleSearch}
+            />
+            <StarshipList starships={searchedData} />
         </main>
     );
 }
