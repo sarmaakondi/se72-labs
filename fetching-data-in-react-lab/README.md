@@ -1,6 +1,6 @@
 # Star Wars API
 
-A responsive web app which displays the consumed information using SWAPI.
+A responsive web app which displays the consumed information from SWAPI.
 
 ## Installation
 
