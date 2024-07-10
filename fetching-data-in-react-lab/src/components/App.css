@@ -50,10 +50,19 @@ input {
     border: 1px solid rgba(160, 160, 160, 0.6);
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1376px) {
     .list ul {
         display: grid;
         grid-template-columns: repeat(2, minmax(350px, 450px));
+        list-style: none;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1016px) {
+    .list ul {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(350px, 450px));
         list-style: none;
         gap: 16px;
     }

@@ -1,4 +1,4 @@
-const StarshipSearch = ({ searchTerm, handleSearch }) => {
+const ItemSearch = ({ searchTerm, handleSearch }) => {
     return (
         <form>
             <label htmlFor="searchTerm">Search Term: </label>
@@ -13,4 +13,4 @@ const StarshipSearch = ({ searchTerm, handleSearch }) => {
     );
 };
 
-export default StarshipSearch;
+export default ItemSearch;

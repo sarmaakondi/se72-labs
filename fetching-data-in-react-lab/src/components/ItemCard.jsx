@@ -1,4 +1,4 @@
-const StarshipCard = ({ name, starship_class, manufacturer, model }) => {
+const ItemCard = ({ name, starship_class, manufacturer, model }) => {
     return (
         <div className="card">
             <li className="name">{name}</li>
@@ -9,4 +9,4 @@ const StarshipCard = ({ name, starship_class, manufacturer, model }) => {
     );
 };
 
-export default StarshipCard;
+export default ItemCard;

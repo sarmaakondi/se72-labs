@@ -1,13 +1,13 @@
-import StarshipCard from "./StarshipCard";
+import ItemCard from "./ItemCard";
 
-const StarshipList = ({ starships }) => {
+const ItemList = ({ starships }) => {
     return (
         <div className="list">
             <h2>Starships</h2>
             <h3>Number of results: {starships.length}</h3>
             <ul>
                 {starships.map((starship) => (
-                    <StarshipCard
+                    <ItemCard
                         key={starship.name}
                         name={starship.name}
                         starship_class={starship.starship_class}
@@ -20,4 +20,4 @@ const StarshipList = ({ starships }) => {
     );
 };
 
-export default StarshipList;
+export default ItemList;

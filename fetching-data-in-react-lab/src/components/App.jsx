@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
+import ItemSearch from "./ItemSearch";
+import ItemList from "./ItemList";
 import * as starshipService from "../services/starshipService";
-import StarshipSearch from "./StarshipSearch";
-import StarshipList from "./StarshipList";
 
 import "./App.css";
 
@@ -34,11 +34,8 @@ function App() {
     return (
         <main>
             <h1>Star Wars API</h1>
-            <StarshipSearch
-                searchTerm={searchTerm}
-                handleSearch={handleSearch}
-            />
-            <StarshipList starships={searchedData} />
+            <ItemSearch searchTerm={searchTerm} handleSearch={handleSearch} />
+            <ItemList starships={searchedData} />
         </main>
     );
 }
