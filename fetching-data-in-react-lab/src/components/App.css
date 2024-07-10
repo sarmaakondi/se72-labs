@@ -1,6 +1,6 @@
 .list ul {
     display: grid;
-    grid-template-columns: repeat(3, minmax(350px, 450px));
+    grid-template-columns: repeat(3, minmax(340px, 440px));
     list-style: none;
     gap: 16px;
 }
@@ -77,7 +77,7 @@ input {
 @media (max-width: 1376px) {
     .list ul {
         display: grid;
-        grid-template-columns: repeat(2, minmax(350px, 450px));
+        grid-template-columns: repeat(2, minmax(340px, 440px));
         list-style: none;
         gap: 16px;
     }
@@ -86,7 +86,7 @@ input {
 @media (max-width: 1016px) {
     .list ul {
         display: grid;
-        grid-template-columns: repeat(1, minmax(350px, 450px));
+        grid-template-columns: repeat(1, minmax(340px, 440px));
         list-style: none;
         gap: 16px;
     }
