@@ -59,17 +59,19 @@ function App() {
 
     return (
         <main>
-            <div className="header">
+            <div className="container">
                 <h1>Star Wars API</h1>
-                {categoryList.map((item) => (
-                    <button
-                        key={item}
-                        onClick={(event) =>
-                            setCategory(event.target.innerText)
-                        }>
-                        {item}
-                    </button>
-                ))}
+                <div className="header">
+                    {categoryList.map((item) => (
+                        <button
+                            key={item}
+                            onClick={(event) =>
+                                setCategory(event.target.innerText)
+                            }>
+                            {item}
+                        </button>
+                    ))}
+                </div>
             </div>
             <ItemSearch searchTerm={searchTerm} handleSearch={handleSearch} />
             <ItemList
