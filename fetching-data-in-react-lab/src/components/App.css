@@ -14,7 +14,6 @@
     line-height: 32px;
 }
 
-h1,
 h2,
 h3 {
     font-weight: 500;
@@ -48,6 +47,31 @@ input {
     padding: 8px 16px;
     border-radius: 8px;
     border: 1px solid rgba(160, 160, 160, 0.6);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 20px;
+}
+
+.header button {
+    height: 50px;
+    font-family: inherit;
+    font-size: 20px;
+}
+
+.header h1 {
+    font-weight: 500;
+}
+
+.field-title {
+    font-weight: 600;
+}
+
+.field-title::after {
+    content: " ";
 }
 
 @media (max-width: 1376px) {

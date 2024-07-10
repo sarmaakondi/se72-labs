@@ -1,10 +1,18 @@
-const ItemCard = ({ name, starship_class, manufacturer, model }) => {
+const ItemCard = ({ fields, data }) => {
+    const filteredData = Object.fromEntries(
+        fields.map((field) => [field, data[field]])
+    );
+
     return (
         <div className="card">
-            <li className="name">{name}</li>
-            <li>Class: {starship_class}</li>
-            <li>Manufacturer: {manufacturer}</li>
-            <li>Model: {model}</li>
+            {Object.keys(filteredData).map((key) => (
+                <li key={key}>
+                    <span className="field-title">
+                        {key.charAt(0).toUpperCase() + key.slice(1)}:
+                    </span>
+                    {data[key]}
+                </li>
+            ))}
         </div>
     );
 };
