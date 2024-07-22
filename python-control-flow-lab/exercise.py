@@ -125,4 +125,56 @@ def calculate_dog_years():
 
 
 # Call the function
-calculate_dog_years()
+# calculate_dog_years()
+
+
+# Exercise 4: Weather Advice
+#
+# Write a Python script named `weather_advice` that provides clothing advice based on weather conditions.
+#
+# Requirements:
+# - The script should prompt the user to enter if it is cold (yes/no).
+# - Then, ask if it is raining (yes/no).
+# - Use logical operators to determine clothing advice:
+#   - If it is cold AND raining, print "Wear a waterproof coat."
+#   - If it is cold BUT NOT raining, print "Wear a warm coat."
+#   - If it is NOT cold but raining, print "Carry an umbrella."
+#   - If it is NOT cold AND NOT raining, print "Wear light clothing."
+#
+# Hints:
+# - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
+
+
+class InvalidInputError(Exception):
+    pass
+
+
+def weather_advice():
+    try:
+        is_cold = input("Is it cold (yes/no): ").lower()
+        is_raining = input("Is it raining (yes/no): ").lower()
+        valid_response = ["yes", "no"]
+
+        if is_cold not in valid_response or is_raining not in valid_response:
+            raise InvalidInputError("Please input 'yes' or 'no' only")
+
+        is_cold = is_cold == "yes"
+        is_raining = is_raining == "yes"
+
+        if is_cold and is_raining:
+            print("Wear a waterproof coat.")
+        elif is_cold and not is_raining:
+            print("Wear a warm coat.")
+        elif is_raining and not is_cold:
+            print("Carry an umbrella.")
+        else:
+            print("Wear light clothing.")
+
+    except InvalidInputError as error:
+        print(error)
+    except KeyboardInterrupt:
+        print("\nProgram interrupted by user.")
+
+
+# Call the function
+weather_advice()
