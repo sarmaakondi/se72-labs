@@ -177,4 +177,85 @@ def weather_advice():
 
 
 # Call the function
-weather_advice()
+# weather_advice()
+
+
+# Exercise 5: What's the Season?
+#
+# Write a Python function named `determine_season` that figures out the season based on the entered date.
+#
+# Requirements:
+# - The function should first prompt the user to enter the month (as three characters): "Enter the month of the year (Jan - Dec):"
+# - Then, the function should prompt the user to enter the day of the month: "Enter the day of the month:"
+# - Determine the current season based on the date:
+#      - Dec 21 - Mar 19: Winter
+#      - Mar 20 - Jun 20: Spring
+#      - Jun 21 - Sep 21: Summer
+#      - Sep 22 - Dec 20: Fall
+# - Print the season for the entered date in the format: "<Mmm> <dd> is in <season>."
+#
+# Hints:
+# - Use 'in' to check if a string is in a list or tuple.
+# - Adjust the season based on the day of the month when needed.
+# - Ensure to validate input formats and handle unexpected inputs gracefully.
+
+
+def determine_season():
+    input_month = input("Enter the month of the year (Jan - Dec): ").lower()
+    input_day = input("Enter the day of the month: ")
+
+    winter_months = ("dec", "jan", "feb", "mar")
+    spring_months = ("mar", "apr", "may", "jun")
+    summer_months = ("jun", "jul", "aug", "sep")
+    fall_months = ("sep", "oct", "nov", "dec")
+    all_months = winter_months + spring_months + summer_months + fall_months
+    season = ""
+
+    try:
+        input_month = input_month.strip()
+        if input_month not in all_months:
+            raise InvalidInputError("Invalid month, try again.")
+
+        if (
+            not input_day.isnumeric()
+            or len(input_day) > 2
+            or int(input_day) <= 0
+            or int(input_day) > 31
+        ):
+            raise InvalidInputError("Invalid day, try again.")
+
+        input_day = int(input_day)
+
+        if (
+            (input_month == winter_months[0] and input_day >= 21)
+            or (input_month == winter_months[-1] and input_day <= 19)
+            or (input_month in winter_months[1:3])
+        ):
+            season = "Winter"
+        elif (
+            (input_month == spring_months[0] and input_day >= 20)
+            or (input_month == spring_months[-1] and input_day <= 20)
+            or (input_month in spring_months[1:3])
+        ):
+            season = "Spring"
+        elif (
+            (input_month == summer_months[0] and input_day >= 21)
+            or (input_month == summer_months[-1] and input_day <= 21)
+            or (input_month in summer_months[1:3])
+        ):
+            season = "Summer"
+        elif (
+            (input_month == fall_months[0] and input_day >= 22)
+            or (input_month == fall_months[-1] and input_day <= 20)
+            or (input_month in fall_months[1:3])
+        ):
+            season = "Fall"
+
+        print(f"{input_month.capitalize()} {input_day} is in {season}")
+
+    except InvalidInputError as error:
+        print(error)
+
+
+# Call the function
+determine_season()
