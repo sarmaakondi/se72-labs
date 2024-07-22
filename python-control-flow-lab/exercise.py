@@ -20,3 +20,38 @@ def print_greeting():
 
 # Call the function
 print_greeting()
+
+
+# Exercise 1: Vowel or Consonant
+#
+# Write a Python function named `check_letter` that determines if a given letter
+# is a vowel or a consonant.
+#
+# Requirements:
+# - The function should prompt the user to enter a letter (a-z or A-Z) and determine its type.
+# - It should handle both uppercase and lowercase letters.
+# - If the letter is a vowel (a, e, i, o, u), print: "The letter x is a vowel."
+# - If the letter is a consonant, print: "The letter x is a consonant."
+# - Replace 'x' with the actual letter entered by the user.
+#
+# Hints:
+# - Use the `input()` function to capture user input.
+# - Utilize the `in` operator to check for vowels.
+# - Ensure to provide feedback for non-alphabetical or invalid entries.
+
+
+def check_letter():
+    user_input = input("Enter a letter (a-z or A-Z): ")
+    vowels = ["a", "e", "i", "o", "u"]
+
+    if len(user_input) != 1 or not user_input.isalpha():
+        result = "Invalid input, try again!"
+    else:
+        user_input = user_input.lower()
+        result = f"The letter {user_input} is a {"vowel" if user_input in vowels else "consonant"}"
+
+    print(result)
+
+
+# Call the function
+check_letter()
