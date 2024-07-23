@@ -93,4 +93,28 @@ def hometown_info():
 
 
 # Call the function and print the result
-print("Exercise 4:", hometown_info())
+# print("Exercise 4:", hometown_info())
+
+
+# Exercise 5: Iterating Over Dictionary Items
+#
+# Define an empty list named home_town_items.
+# Use a for loop to iterate over the key: value pairs in the home_town dictionary and append a string with the following format to home_town_items: "<key> = <value>"
+
+
+def list_home_town_items():
+    home_town = {
+        "city": "Eluru",
+        "state": "Andhra Pradesh",
+        "population": 49_577_103,
+    }
+    home_town_items = [
+        f"{key} = {value if not isinstance(value, (int, float)) else f'{value: ,d}'}"
+        for key, value in home_town.items()
+    ]
+
+    return home_town_items
+
+
+# Call the function and print the result
+print("Exercise 5:", list_home_town_items())
