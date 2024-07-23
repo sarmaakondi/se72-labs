@@ -92,5 +92,29 @@ def sum_to(num):
     return (num * (num + 1)) / 2
 
 
-print("Exercise 5:", sum_to(6))
-print("Exercise 5:", sum_to(10))
+# print("Exercise 5:", sum_to(6))
+# print("Exercise 5:", sum_to(10))
+
+
+# Exercise 6: Find the Largest Number
+#
+# Write a function named `largest` that takes three integers as arguments and returns the largest of them.
+#
+# Examples:
+# largest(1, 2, 3) should return 3.
+# largest(10, 4, 2) should return 10.
+#
+# Define your function and test it with different inputs.
+def largest(num_1, num_2, num_3):
+    if num_1 > num_2 and num_1 > num_3:
+        return num_1
+
+    if num_2 > num_3 and num_2 > num_1:
+        return num_2
+
+    if num_3 > num_1 and num_3 > num_2:
+        return num_3
+
+
+print("Exercise 6:", largest(1, 2, 3))
+print("Exercise 6:", largest(10, 4, 2))
