@@ -18,10 +18,21 @@ class Game:
     def play_game(self):
         print("Game started!")
 
+    def print_board(self):
+        board = self.board
+        print(f"""
+                A   B   C
+            1)  {board['a1'] or ' '} | {board['b1'] or ' '} | {board['c1'] or ' '}
+                ----------
+            2)  {board['a2'] or ' '} | {board['b2'] or ' '} | {board['c2'] or ' '}
+                ----------
+            3)  {board['a3'] or ' '} | {board['b3'] or ' '} | {board['c3'] or ' '}
+        """)
+
 
 def play_game():
     game_instance = Game()
-    game_instance.play_game()
+    game_instance.print_board()
 
 
 if __name__ == "__main__":
