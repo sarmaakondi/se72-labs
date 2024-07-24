@@ -32,10 +32,14 @@ class Game:
     def print_message(self):
         print("Tie game!")
 
+    def render(self):
+        self.print_board()
+        self.print_message()
+
 
 def play_game():
     game_instance = Game()
-    game_instance.print_message()
+    game_instance.render()
 
 
 if __name__ == "__main__":
