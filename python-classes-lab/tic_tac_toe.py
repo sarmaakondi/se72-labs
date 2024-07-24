@@ -48,10 +48,13 @@ class Game:
     def check_for_tie(self):
         print(self.tie)
 
+    def switch_player_turn(self):
+        print("Change from X to O and vice-versa")
+
 
 def play_game():
     game_instance = Game()
-    game_instance.check_for_tie()
+    game_instance.switch_player_turn()
 
 
 if __name__ == "__main__":
