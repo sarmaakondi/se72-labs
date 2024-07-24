@@ -36,10 +36,19 @@ class Game:
         self.print_board()
         self.print_message()
 
+    def get_player_move(self):
+        while True:
+            move = input("Enter a valid move (example: A1): ").lower()
+            print("Move accepted")
+            break
+
+    def check_for_winner(self):
+        print("No winner yet!")
+
 
 def play_game():
     game_instance = Game()
-    game_instance.render()
+    game_instance.check_for_winner()
 
 
 if __name__ == "__main__":
