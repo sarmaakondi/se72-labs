@@ -130,7 +130,7 @@ def play_game():
         [6, 4, 2],
     ]
 
-    print("Ready to play the game? ")
+    print("Shall we play a game? ")
     game.render_welcome_cat()
 
     while game.winner is None and not game.tie:
