@@ -5,15 +5,15 @@ class Game:
         self.winner = None
         self.game_over = False
         self.board = {
-            "a1": "X",
-            "b1": "X",
-            "c1": "O",
-            "a2": "O",
-            "b2": "O",
+            "a1": None,
+            "b1": None,
+            "c1": None,
+            "a2": None,
+            "b2": None,
             "c2": None,
-            "a3": "X",
+            "a3": None,
             "b3": None,
-            "c3": "O",
+            "c3": None,
         }
         self.move_index = {
             0: "a1",
