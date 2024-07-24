@@ -53,6 +53,7 @@ class Game:
             print(f"Player '{self.winner}' wins the game!")
 
     def get_player_move(self):
+        print(f"Player {self.turn}'s turn")
         while True:
             move = input("Enter a valid move (example: A1): ").lower()
             if move not in self.board.keys() or self.board.get(move) is not None:
