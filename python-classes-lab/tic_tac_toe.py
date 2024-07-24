@@ -39,8 +39,11 @@ class Game:
     def get_player_move(self):
         while True:
             move = input("Enter a valid move (example: A1): ").lower()
-            print("Move accepted")
-            break
+            if move not in self.board.keys():
+                print("Invalid move, try again!")
+            else:
+                print("Valid move")
+                break
 
     def check_for_winner(self):
         print("No winner yet!")
@@ -55,6 +58,7 @@ class Game:
 def play_game():
     print("Ready to play the game? ")
     game = Game()
+
     while game.winner is None and not game.tie:
         game.render()
         game.get_player_move()
