@@ -29,10 +29,13 @@ class Game:
             3)  {board['a3'] or ' '} | {board['b3'] or ' '} | {board['c3'] or ' '}
         """)
 
+    def print_message(self):
+        print("Tie game!")
+
 
 def play_game():
     game_instance = Game()
-    game_instance.print_board()
+    game_instance.print_message()
 
 
 if __name__ == "__main__":
