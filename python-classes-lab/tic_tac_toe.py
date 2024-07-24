@@ -31,26 +31,25 @@ class Game:
             "O": "X",
         }
 
-    def play_game(self):
-        print("Game started!")
-
     def print_board(self):
         board = self.board
         print(f"""
-                A   B   C
-            1)  {board["a1"] or " "} | {board["b1"] or " "} | {board["c1"] or " "}
-                ----------
-            2)  {board["a2"] or " "} | {board["b2"] or " "} | {board["c2"] or " "}
-                ----------
-            3)  {board["a3"] or " "} | {board["b3"] or " "} | {board["c3"] or " "}
-        """)
+    A   B   C
+1)  {board["a1"] or " "} | {board["b1"] or " "} | {board["c1"] or " "}
+    ----------
+2)  {board["a2"] or " "} | {board["b2"] or " "} | {board["c2"] or " "}
+    ----------
+3)  {board["a3"] or " "} | {board["b3"] or " "} | {board["c3"] or " "}
+""")
 
     def print_message(self):
         if self.tie:
             self.print_board()
+            self.render_tie_cat()
             print("Tie game!")
         elif self.winner:
             self.print_board()
+            self.render_winner_cat()
             print(f"Player '{self.winner}' wins the game!")
 
     def get_player_move(self):
@@ -84,9 +83,41 @@ class Game:
     def switch_player_turn(self):
         self.turn = self.player_turn[self.turn]
 
+    def render_welcome_cat(self):
+        print(r"""
+    /\_____/\
+   /  o   o  \
+  ( ==  v  == )
+   )         (
+  (           )
+ ( (  )   (  ) )
+(__(__)___(__)__)
+            """)
+
+    def render_winner_cat(self):
+        print(r"""
+ /\     /\
+{  `---'  }
+{  O   O  }
+~~>  V  <~~
+ \  \|/  /
+  `-----'____
+  /     \    \_
+ {       }\  )_\_   _
+ |  \_/  |/ /  \_\_/ )
+  \__/  /(_/     \__/
+    (__/
+""")
+
+    def render_tie_cat(self):
+        print(r"""
+ /\_/\
+( o.o )
+ > ^ <
+""")
+
 
 def play_game():
-    print("Ready to play the game? ")
     game = Game()
     winning_combos = [
         [0, 1, 2],
@@ -98,6 +129,9 @@ def play_game():
         [0, 4, 8],
         [6, 4, 2],
     ]
+
+    print("Ready to play the game? ")
+    game.render_welcome_cat()
 
     while game.winner is None and not game.tie:
         game.print_board()
