@@ -53,8 +53,14 @@ class Game:
 
 
 def play_game():
-    game_instance = Game()
-    game_instance.switch_player_turn()
+    print("Ready to play the game? ")
+    game = Game()
+    while game.winner is None and not game.tie:
+        game.render()
+        game.get_player_move()
+        game.check_for_winner
+        game.check_for_tie()
+        game.switch_player_turn()
 
 
 if __name__ == "__main__":
