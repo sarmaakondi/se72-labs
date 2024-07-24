@@ -14,3 +14,15 @@ class Game:
             "b3": None,
             "c3": None,
         }
+
+    def play_game(self):
+        print("Game started!")
+
+
+def play_game():
+    game_instance = Game()
+    game_instance.play_game()
+
+
+if __name__ == "__main__":
+    play_game()
