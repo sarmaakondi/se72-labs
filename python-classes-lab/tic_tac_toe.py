@@ -45,10 +45,13 @@ class Game:
     def check_for_winner(self):
         print("No winner yet!")
 
+    def check_for_tie(self):
+        print(self.tie)
+
 
 def play_game():
     game_instance = Game()
-    game_instance.check_for_winner()
+    game_instance.check_for_tie()
 
 
 if __name__ == "__main__":
